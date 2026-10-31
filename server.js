@@ -1,7 +1,88 @@
 const http = require('http');
+const https = require('https');
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+
+// Load .env configuration natively if available
+try {
+  const envPath = path.join(__dirname, '.env');
+  if (fs.existsSync(envPath)) {
+    const lines = fs.readFileSync(envPath, 'utf8').split(/\r?\n/);
+    lines.forEach(line => {
+      line = line.trim();
+      if (line && !line.startsWith('#') && line.includes('=')) {
+        const idx = line.indexOf('=');
+        const k = line.substring(0, idx).trim();
+        const v = line.substring(idx + 1).trim().replace(/^["']|["']$/g, '');
+        if (!process.env[k]) {
+          process.env[k] = v;
+        }
+      }
+    });
+  }
+} catch (e) {
+  console.warn('Could not read .env file:', e.message);
+}
+
+// Resend Email Dispatcher (Direct API without external packages)
+function sendResendEmail({ to, replyTo, subject, html, text }) {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    console.log(`[EMAIL NOTICE] No RESEND_API_KEY set. (Email simulated in console). Target: ${to} | Subject: ${subject}`);
+    return Promise.resolve({ simulated: true });
+  }
+
+  const fromEmail = process.env.FROM_EMAIL || 'Colombo Associates <onboarding@resend.dev>';
+
+  const payload = {
+    from: fromEmail,
+    to: Array.isArray(to) ? to : [to],
+    subject: subject,
+    html: html,
+    ...(replyTo ? { reply_to: replyTo } : {}),
+    ...(text ? { text: text } : {})
+  };
+
+  return new Promise((resolve) => {
+    const data = JSON.stringify(payload);
+    const req = https.request({
+      hostname: 'api.resend.com',
+      path: '/emails',
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(data)
+      }
+    }, res => {
+      let body = '';
+      res.on('data', c => body += c);
+      res.on('end', () => {
+        try {
+          const parsed = JSON.parse(body);
+          if (res.statusCode >= 200 && res.statusCode < 300) {
+            console.log(`[RESEND SUCCESS] Sent to ${to} | ID: ${parsed.id}`);
+            resolve({ success: true, data: parsed });
+          } else {
+            console.error(`[RESEND ERROR ${res.statusCode}]:`, parsed);
+            resolve({ success: false, error: parsed });
+          }
+        } catch (e) {
+          resolve({ success: false, raw: body });
+        }
+      });
+    });
+
+    req.on('error', err => {
+      console.error('[RESEND NETWORK ERROR]:', err.message);
+      resolve({ success: false, error: err.message });
+    });
+
+    req.write(data);
+    req.end();
+  });
+}
 
 const PORT = process.env.PORT || 3000;
 const PUBLIC_DIR = path.resolve(__dirname);
@@ -257,6 +338,45 @@ const server = http.createServer((req, res) => {
         // 7. Internal Log
         console.log(`[ENQUIRY RECEIVED] Ref: ${enqId} | Service: ${serviceArea} | Client: ${rawName} (${rawEmail}) | Status: Pending Conflict Review`);
 
+        // Dispatch Email Notification to Firm Intake Email (enquiries@colomboassociates.lk)
+        const targetFirmEmail = process.env.FIRM_INTAKE_EMAIL || 'enquiries@colomboassociates.lk';
+        const intakeEmailHtml = `
+          <div style="font-family: Arial, sans-serif; max-width: 620px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;">
+            <div style="background: #07162c; padding: 22px; text-align: center;">
+              <h2 style="color: #c5a059; margin: 0; font-size: 20px; letter-spacing: 1.5px; font-family: serif;">COLOMBO ASSOCIATES</h2>
+              <p style="color: #e2e8f0; margin: 6px 0 0 0; font-size: 13px;">New Client Matter Enquiry</p>
+            </div>
+            <div style="padding: 24px; background: #ffffff;">
+              <p style="font-size: 14px; color: #334155; margin-top: 0;">A prospective client matter enquiry has been submitted through the firm website:</p>
+              <table style="width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 18px 0;">
+                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b; width: 150px;">Enquiry Reference:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; font-weight: bold; color: #07162c;">${enqId}</td></tr>
+                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Client Name:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; font-weight: bold; color: #0f172a;">${rawName}</td></tr>
+                ${data.organisation ? `<tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Organisation:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9;">${sanitizeString(data.organisation)}</td></tr>` : ''}
+                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Business Email:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9;"><a href="mailto:${rawEmail}" style="color: #0284c7; font-weight: bold;">${rawEmail}</a></td></tr>
+                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Telephone:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9;">${rawPhone}</td></tr>
+                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Country:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9;">${rawCountry}</td></tr>
+                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Practice Area:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; font-weight: bold; color: #0369a1;">${serviceArea}</td></tr>
+                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Preferred Method:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9;">${sanitizeString(data.preferredMethod || 'Email')}</td></tr>
+                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Preferred Time:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9;">${sanitizeString(data.preferredTime || 'Morning')}</td></tr>
+              </table>
+              <div style="background: #f8fafc; border-left: 4px solid #c5a059; padding: 14px; margin-top: 10px; border-radius: 0 4px 4px 0;">
+                <strong style="color: #07162c; font-size: 13px;">Matter Description:</strong>
+                <p style="margin: 8px 0 0 0; color: #334155; line-height: 1.6; white-space: pre-wrap; font-size: 13.5px;">${rawDesc}</p>
+              </div>
+              <p style="font-size: 12px; color: #94a3b8; margin-top: 24px; line-height: 1.5;">
+                *Notice: This matter is pending preliminary conflict clearance. You can click <strong>Reply</strong> in your email client to directly email ${rawName} (${rawEmail}).
+              </p>
+            </div>
+          </div>
+        `;
+
+        sendResendEmail({
+          to: targetFirmEmail,
+          replyTo: rawEmail,
+          subject: `[New Matter Enquiry] ${enqId} — ${rawName} (${serviceArea})`,
+          html: intakeEmailHtml
+        }).catch(e => console.error('Enquiry email error:', e));
+
         // 8. Return verified success response
         res.writeHead(200, { 'Content-Type': 'application/json' });
         return res.end(JSON.stringify({
@@ -469,6 +589,43 @@ const server = http.createServer((req, res) => {
 
         // 8. Internal Log
         console.log(`[RECRUITMENT SUBMISSION] App Ref: ${appId} | Position: ${position} | Applicant: ${name} (${email})`);
+
+        // Dispatch Email Notification to Firm Careers Email (careers@colomboassociates.lk)
+        const targetCareersEmail = process.env.FIRM_CAREERS_EMAIL || 'careers@colomboassociates.lk';
+        const careersEmailHtml = `
+          <div style="font-family: Arial, sans-serif; max-width: 620px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;">
+            <div style="background: #07162c; padding: 22px; text-align: center;">
+              <h2 style="color: #c5a059; margin: 0; font-size: 20px; letter-spacing: 1.5px; font-family: serif;">COLOMBO ASSOCIATES</h2>
+              <p style="color: #e2e8f0; margin: 6px 0 0 0; font-size: 13px;">Recruitment Portal — Candidate Application</p>
+            </div>
+            <div style="padding: 24px; background: #ffffff;">
+              <p style="font-size: 14px; color: #334155; margin-top: 0;">A new candidate application has been submitted through the careers portal:</p>
+              <table style="width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 18px 0;">
+                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b; width: 150px;">Application ID:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; font-weight: bold; color: #07162c;">${appId}</td></tr>
+                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Target Position:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; font-weight: bold; color: #0369a1;">${position}</td></tr>
+                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Candidate Name:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; font-weight: bold; color: #0f172a;">${name}</td></tr>
+                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Email Address:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9;"><a href="mailto:${email}" style="color: #0284c7; font-weight: bold;">${email}</a></td></tr>
+                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Telephone:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9;">${phone}</td></tr>
+                ${linkedin ? `<tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">LinkedIn Profile:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9;"><a href="${linkedin}" target="_blank">${linkedin}</a></td></tr>` : ''}
+                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">CV Document:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; font-weight: bold;">${path.basename(data.cvFile.name)} (Stored in Vault)</td></tr>
+              </table>
+              <div style="background: #f8fafc; border-left: 4px solid #c5a059; padding: 14px; margin-top: 10px; border-radius: 0 4px 4px 0;">
+                <strong style="color: #07162c; font-size: 13px;">Experience & Qualifications Summary:</strong>
+                <p style="margin: 8px 0 0 0; color: #334155; line-height: 1.6; white-space: pre-wrap; font-size: 13.5px;">${experience}</p>
+              </div>
+              <p style="font-size: 12px; color: #94a3b8; margin-top: 24px; line-height: 1.5;">
+                *Notice: Candidate CV and Cover Letter are securely archived in the firm's data vault and accessible via the Admin Portal.
+              </p>
+            </div>
+          </div>
+        `;
+
+        sendResendEmail({
+          to: targetCareersEmail,
+          replyTo: email,
+          subject: `[Job Application] ${appId} — ${name} (${position})`,
+          html: careersEmailHtml
+        }).catch(e => console.error('Careers email error:', e));
 
         // 9. Verified Success Response
         res.writeHead(200, { 'Content-Type': 'application/json' });
