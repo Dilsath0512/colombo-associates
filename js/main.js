@@ -272,10 +272,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 8. Contact Form Client-Side Validation & Dispatch Feedback (Strict Verification)
+  // Only bind here if not on contact.html (which has its own dedicated handler)
   const enquiryForm = document.getElementById('client-enquiry-form');
   const toastNotice = document.getElementById('toast-notice');
 
-  if (enquiryForm) {
+  if (enquiryForm && !document.getElementById('contact-name')) {
     enquiryForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
@@ -287,13 +288,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       // Validate Required Fields
-      const nameInput = document.getElementById('enquiry-name') || document.getElementById('contact-name');
-      const orgInput = document.getElementById('enquiry-org') || document.getElementById('contact-org');
-      const emailInput = document.getElementById('enquiry-email') || document.getElementById('contact-email');
-      const phoneInput = document.getElementById('enquiry-phone') || document.getElementById('contact-phone');
-      const countryInput = document.getElementById('enquiry-country') || document.getElementById('contact-country');
+      const nameInput = document.getElementById('enquiry-name');
+      const orgInput = document.getElementById('enquiry-org');
+      const emailInput = document.getElementById('enquiry-email');
+      const phoneInput = document.getElementById('enquiry-phone');
+      const countryInput = document.getElementById('enquiry-country');
       const serviceSelect = document.getElementById('enquiry-service');
-      const descInput = document.getElementById('enquiry-desc') || document.getElementById('contact-desc');
+      const descInput = document.getElementById('enquiry-desc');
       const methodSelect = document.getElementById('enquiry-method');
       const timeSelect = document.getElementById('enquiry-time');
       const consentCheck = document.getElementById('enquiry-consent') || enquiryForm.querySelector('input[type="checkbox"]');
@@ -310,8 +311,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Email format validation
-      const emailPattern = /^[^s@]+@[^s@]+.[^s@]+$/;
+      // Email format validation (proper RFC regex with escaped backslashes)
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (emailInput) {
         if (!emailPattern.test(emailInput.value.trim())) {
           emailInput.classList.add('is-invalid');
