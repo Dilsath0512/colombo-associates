@@ -117,5 +117,22 @@
     "submissionTimestamp": "2026-10-31T14:08:26.329Z",
     "enquiryStatus": "Pending Conflict Review",
     "assignedIntakeOfficer": "Conflict Clearance Committee"
+  },
+  {
+    "enquiryReferenceId": "CA-ENQ-2026-5313",
+    "fullName": "Mohamed Dilsath",
+    "organisation": "Dilsath Holdings (Pvt) Ltd",
+    "businessEmail": "dilsath.test@gmail.com",
+    "telephone": "+94 77 123 4567",
+    "country": "Sri Lanka",
+    "serviceArea": "Corporate & Commercial",
+    "matterDescription": "Need corporate restructuring advisory and review of shareholder agreements for our Colombo firm.",
+    "preferredContactMethod": "Email",
+    "preferredTimeWindow": "Sri Lanka Business Hours (Morning)",
+    "privacyConsent": true,
+    "consentTimestamp": "2026-10-31T14:41:47.712Z",
+    "submissionTimestamp": "2026-10-31T14:41:47.712Z",
+    "enquiryStatus": "Pending Conflict Review",
+    "assignedIntakeOfficer": "Conflict Clearance Committee"
   }
 ]
