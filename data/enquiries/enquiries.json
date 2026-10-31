@@ -66,5 +66,39 @@
     "submissionTimestamp": "2026-10-30T18:40:02.909Z",
     "enquiryStatus": "Pending Conflict Review",
     "assignedIntakeOfficer": "Conflict Clearance Committee"
+  },
+  {
+    "enquiryReferenceId": "CA-ENQ-2026-7724",
+    "fullName": "ewafewffes",
+    "organisation": "asdddwF",
+    "businessEmail": "dilsath@gmail.com",
+    "telephone": "65546316465",
+    "country": "Sri Lanka",
+    "serviceArea": "Tax",
+    "matterDescription": "rsegsegvsregvbrs",
+    "preferredContactMethod": "Email",
+    "preferredTimeWindow": "Sri Lanka Business Hours (Morning)",
+    "privacyConsent": true,
+    "consentTimestamp": "2026-10-31T13:25:45.987Z",
+    "submissionTimestamp": "2026-10-31T13:25:45.994Z",
+    "enquiryStatus": "Pending Conflict Review",
+    "assignedIntakeOfficer": "Conflict Clearance Committee"
+  },
+  {
+    "enquiryReferenceId": "CA-ENQ-2026-5779",
+    "fullName": "Hon. Justice &amp; Corporate Client",
+    "organisation": "Singapore International Capital",
+    "businessEmail": "director@singaporecapital.sg",
+    "telephone": "+65 6789 0123",
+    "country": "Singapore",
+    "serviceArea": "Banking & Finance",
+    "matterDescription": "Cross-border syndicate financing and conflict check test for Colombo Associates digital platform.",
+    "preferredContactMethod": "Email",
+    "preferredTimeWindow": "Sri Lanka Business Hours (Morning)",
+    "privacyConsent": true,
+    "consentTimestamp": "2026-10-31T13:42:00.678Z",
+    "submissionTimestamp": "2026-10-31T13:42:00.679Z",
+    "enquiryStatus": "Pending Conflict Review",
+    "assignedIntakeOfficer": "Conflict Clearance Committee"
   }
 ]

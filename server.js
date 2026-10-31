@@ -645,52 +645,6 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // Admin API: Retrieve inquiries and applications for internal dashboard
-  if (req.method === 'GET' && reqPath === '/api/admin/data') {
-    let enquiriesList = [];
-    let applicationsList = [];
-    try {
-      if (fs.existsSync(SECURE_ENQUIRIES_FILE)) {
-        enquiriesList = JSON.parse(fs.readFileSync(SECURE_ENQUIRIES_FILE, 'utf8') || '[]');
-      }
-      if (fs.existsSync(SECURE_DB_FILE)) {
-        applicationsList = JSON.parse(fs.readFileSync(SECURE_DB_FILE, 'utf8') || '[]');
-      }
-    } catch (e) {
-      console.error('Admin data read error:', e);
-    }
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    return res.end(JSON.stringify({
-      success: true,
-      totalEnquiries: enquiriesList.length,
-      totalApplications: applicationsList.length,
-      enquiries: enquiriesList.slice().reverse(), // latest first
-      applications: applicationsList.slice().reverse()
-    }));
-  }
-
-  // Admin API: Securely download an applicant document
-  if (req.method === 'GET' && reqPath === '/api/admin/document') {
-    const parsedUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
-    const fileId = path.basename(parsedUrl.searchParams.get('file') || '');
-    if (!fileId) {
-      res.writeHead(400, { 'Content-Type': 'application/json' });
-      return res.end(JSON.stringify({ success: false, error: 'File parameter is required.' }));
-    }
-    const docPath = path.join(SECURE_DOCS_DIR, fileId);
-    if (!fs.existsSync(docPath)) {
-      res.writeHead(404, { 'Content-Type': 'application/json' });
-      return res.end(JSON.stringify({ success: false, error: 'Document not found.' }));
-    }
-    const ext = path.extname(docPath).toLowerCase();
-    const contentType = MIME_TYPES[ext] || 'application/octet-stream';
-    res.writeHead(200, {
-      'Content-Type': contentType,
-      'Content-Disposition': `attachment; filename="${fileId}"`
-    });
-    return fs.createReadStream(docPath).pipe(res);
-  }
-
   // Security check: Block direct public GET access to backend database, sensitive code or storage
   if (reqPath.startsWith('/api/careers') ||
       reqPath.startsWith('/api/recruitment') ||
