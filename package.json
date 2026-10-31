@@ -1,0 +1,24 @@
+{
+  "name": "colombo-associates",
+  "version": "1.0.0",
+  "description": "Premier Corporate, Commercial & Dispute Resolution Law Firm Web Platform and Backend API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node scratch/check_pages_status.js"
+  },
+  "keywords": [
+    "colombo-associates",
+    "law-firm",
+    "backend-api",
+    "nodejs",
+    "vanilla-js",
+    "corporate-law"
+  ],
+  "author": "Mohamed Dilsath",
+  "license": "ISC",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

@@ -1,0 +1,102 @@
+[
+  {
+    "applicationId": "CA-REC-2026-3979",
+    "applicantName": "Kasun Perera",
+    "email": "kasun.perera@example.lk",
+    "phone": "+94 77 123 4567",
+    "position": "Senior Corporate Associate",
+    "experienceSummary": "Attorney-at-Law with 5 years PQE in corporate transactional work, due diligence, and BOI approvals.",
+    "linkedinUrl": "https://linkedin.com/in/kasunperera-law",
+    "cvFileReference": {
+      "originalName": "Kasun_Perera_CV.pdf",
+      "storedFileName": "cv_1793354890187_337e10d1811a.pdf",
+      "sizeBytes": 47,
+      "sha256": "2ab94463e399ce58a21df28c88b429dd6c64637faadd1de7d8d44f10e4132415",
+      "mimeType": "application/octet-stream"
+    },
+    "coverLetterReference": null,
+    "consentGiven": true,
+    "consentTimestamp": "2026-10-30T10:08:10.195Z",
+    "submissionTimestamp": "2026-10-30T10:08:10.195Z",
+    "applicationStatus": "Under Initial Screening",
+    "assignedCommittee": "Colombo Associates Recruitment Committee"
+  },
+  {
+    "applicationId": "CA-REC-2026-2736",
+    "applicantName": "Samantha Jayawardena",
+    "email": "candidate.1793355077032@lawcolombo.lk",
+    "phone": "+94 71 889 9001",
+    "position": "Senior Corporate Associate",
+    "experienceSummary": "Attorney-at-Law, LL.B (Hons), 6 years PQE in corporate acquisitions, ROC restructuring, and BOI approvals.",
+    "linkedinUrl": "https://linkedin.com/in/samanthaj-law",
+    "cvFileReference": {
+      "originalName": "Samantha_Jayawardena_CV.pdf",
+      "storedFileName": "cv_1793355077073_1eca8684ac64.pdf",
+      "sizeBytes": 84,
+      "sha256": "771bd8a94daf173a6faef49d273323412dcae93f15a24f2fba107f6dd72faa8b",
+      "mimeType": "application/octet-stream"
+    },
+    "coverLetterReference": {
+      "originalName": "Cover_Letter.docx",
+      "storedFileName": "cl_1793355077033_46fa5b6fa7a1.docx",
+      "sizeBytes": 10,
+      "sha256": "ce4eee426281b10649e13e62ba5c641d2216fdc46b858a03f86b5dfb60543f7f",
+      "mimeType": "application/octet-stream"
+    },
+    "consentGiven": true,
+    "consentTimestamp": "2026-10-30T10:11:17.077Z",
+    "submissionTimestamp": "2026-10-30T10:11:17.077Z",
+    "applicationStatus": "Under Initial Screening",
+    "assignedCommittee": "Colombo Associates Recruitment Committee"
+  },
+  {
+    "applicationId": "CA-REC-2026-3325",
+    "applicantName": "Test Applicant",
+    "email": "cand.1793355077082@test.lk",
+    "phone": "+94 77 123 4567",
+    "position": "Legal Internship & Pupillage Program",
+    "experienceSummary": "Final year Law College student.",
+    "linkedinUrl": null,
+    "cvFileReference": {
+      "originalName": "huge_portfolio.pdf",
+      "storedFileName": "cv_1793355077083_4c2eb4b1c870.pdf",
+      "sizeBytes": 84,
+      "sha256": "771bd8a94daf173a6faef49d273323412dcae93f15a24f2fba107f6dd72faa8b",
+      "mimeType": "application/octet-stream"
+    },
+    "coverLetterReference": null,
+    "consentGiven": true,
+    "consentTimestamp": "2026-10-30T10:11:17.086Z",
+    "submissionTimestamp": "2026-10-30T10:11:17.086Z",
+    "applicationStatus": "Under Initial Screening",
+    "assignedCommittee": "Colombo Associates Recruitment Committee"
+  },
+  {
+    "applicationId": "CA-REC-2026-5986",
+    "applicantName": "Samantha Jayawardena",
+    "email": "candidate.1793355193587@lawcolombo.lk",
+    "phone": "+94 71 889 9001",
+    "position": "Senior Corporate Associate",
+    "experienceSummary": "Attorney-at-Law, LL.B (Hons), 6 years PQE in corporate acquisitions, ROC restructuring, and BOI approvals.",
+    "linkedinUrl": "https://linkedin.com/in/samanthaj-law",
+    "cvFileReference": {
+      "originalName": "Samantha_Jayawardena_CV.pdf",
+      "storedFileName": "cv_1793355193593_3ccddc6d8cdf.pdf",
+      "sizeBytes": 84,
+      "sha256": "771bd8a94daf173a6faef49d273323412dcae93f15a24f2fba107f6dd72faa8b",
+      "mimeType": "application/octet-stream"
+    },
+    "coverLetterReference": {
+      "originalName": "Cover_Letter.docx",
+      "storedFileName": "cl_1793355193588_e7f9a2ae9073.docx",
+      "sizeBytes": 10,
+      "sha256": "ce4eee426281b10649e13e62ba5c641d2216fdc46b858a03f86b5dfb60543f7f",
+      "mimeType": "application/octet-stream"
+    },
+    "consentGiven": true,
+    "consentTimestamp": "2026-10-30T10:13:13.595Z",
+    "submissionTimestamp": "2026-10-30T10:13:13.595Z",
+    "applicationStatus": "Under Initial Screening",
+    "assignedCommittee": "Colombo Associates Recruitment Committee"
+  }
+]

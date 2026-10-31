@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Colombo Associates - Sri Lankan Legal & Corporate Services</title>
+  <meta name="description" content="Learn about Colombo Associates, our professional approach grounded in Sri Lankan legal realities, brand positioning, and multidisciplinary capabilities.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css?v=20261031_v10">
+  <style>
+    /* Executive About Page Styles & Mobile Responsiveness */
+    
+    .about-section {
+      padding: 88px 0;
+    }
+
+    /* Base Desktop Grid Layouts */
+    .about-narrative-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .qualities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .stakeholders-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .standing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    /* Section 1: Positioning Pull-Quote Box */
+    .about-narrative-title {
+      font-family: var(--font-display);
+      font-size: 2.35rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      line-height: 1.25;
+      margin-bottom: 18px;
+    }
+    .positioning-highlight-box {
+      background: linear-gradient(135deg, rgba(8, 26, 68, 0.04) 0%, rgba(0, 132, 255, 0.07) 100%);
+      border-left: 4px solid var(--color-accent);
+      border-radius: 0 12px 12px 0;
+      padding: 18px 22px;
+      margin: 20px 0 24px;
+      border-top: 1px solid rgba(0, 132, 255, 0.12);
+      border-right: 1px solid rgba(0, 132, 255, 0.12);
+      border-bottom: 1px solid rgba(0, 132, 255, 0.12);
+    }
+    .positioning-quote {
+      font-family: var(--font-display);
+      font-size: 1.16rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      letter-spacing: -0.01em;
+      line-height: 1.4;
+    }
+    .positioning-subquote {
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      margin-top: 6px;
+      line-height: 1.55;
+    }
+
+    /* Boardroom Image Container */
+    .about-image-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 20px 45px -10px rgba(8, 26, 68, 0.16);
+      border: 1px solid rgba(8, 26, 68, 0.1);
+      position: relative;
+      background: #ffffff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .about-image-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 25px 55px -12px rgba(8, 26, 68, 0.22);
+    }
+    .about-image-caption {
+      padding: 24px 26px;
+      background: #ffffff;
+      border-top: 1px solid rgba(8, 26, 68, 0.08);
+    }
+    .image-glass-pill {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background: rgba(8, 26, 68, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      z-index: 2;
+    }
+    .image-glass-badge {
+      position: absolute;
+      bottom: 18px;
+      right: 18px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 10px 16px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(8, 26, 68, 0.15);
+      border: 1px solid rgba(0, 132, 255, 0.25);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      z-index: 2;
+      max-width: calc(100% - 36px);
+      box-sizing: border-box;
+    }
+
+    /* Section 2: Executive Quality Cards */
+    .quality-pillar-card {
+      background: #ffffff;
+      padding: 38px 32px;
+      border-radius: 16px;
+      border: 1px solid rgba(8, 26, 68, 0.08);
+      border-top: 3px solid var(--color-accent);
+      box-shadow: 0 4px 20px -2px rgba(8, 26, 68, 0.04), 0 2px 6px -1px rgba(8, 26, 68, 0.02);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .quality-pillar-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px -10px rgba(8, 26, 68, 0.12);
+      border-color: rgba(0, 132, 255, 0.35);
+      border-top-color: var(--color-accent);
+    }
+    .quality-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .quality-icon-box {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(8, 26, 68, 0.05) 0%, rgba(0, 132, 255, 0.12) 100%);
+      color: var(--color-accent);
+      border: 1px solid rgba(0, 132, 255, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .pillar-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      background: rgba(0, 132, 255, 0.08);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* Section 3: Stakeholder Audience Cards */
+    .stakeholder-card {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid rgba(8, 26, 68, 0.08);
+      padding: 28px 24px;
+      box-shadow: 0 4px 16px -2px rgba(8, 26, 68, 0.04);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .stakeholder-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--color-accent);
+      box-shadow: 0 16px 32px -6px rgba(8, 26, 68, 0.1);
+    }
+    .stakeholder-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .stakeholder-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #081a44 0%, #0f2761 100%);
+      color: #38bdf8;
+      font-weight: 800;
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(8, 26, 68, 0.15);
+      flex-shrink: 0;
+    }
+    .stakeholder-category-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-primary);
+      background: rgba(8, 26, 68, 0.05);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* Section 4: Authoritative Standing Cards */
+    .standing-executive-card {
+      background: #ffffff;
+      padding: 38px 34px;
+      border-radius: 18px;
+      border: 1px solid rgba(8, 26, 68, 0.09);
+      box-shadow: 0 10px 30px -5px rgba(8, 26, 68, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: all 0.3s ease;
+    }
+    .standing-executive-card:hover {
+      box-shadow: 0 18px 45px -8px rgba(8, 26, 68, 0.12);
+      border-color: rgba(0, 132, 255, 0.25);
+    }
+    .standing-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #f1f5f9;
+      gap: 14px;
+    }
+    .standing-title-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .standing-icon-container {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(8, 26, 68, 0.06) 0%, rgba(0, 132, 255, 0.14) 100%);
+      color: var(--color-accent);
+      border: 1px solid rgba(0, 132, 255, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .standing-item-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.91rem;
+      line-height: 1.65;
+      color: var(--color-text-muted);
+      padding: 10px 0;
+      border-bottom: 1px dashed #f1f5f9;
+      word-break: break-word;
+    }
+    .standing-item-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .standing-row-icon {
+      width: 20px;
+      height: 20px;
+      stroke: var(--color-accent);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* Section 5: Standards Banner */
+    .banner-luxe-title {
+      font-family: var(--font-display);
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 18px;
+      color: #ffffff;
+    }
+    .banner-luxe-desc {
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.75;
+      font-size: 1.04rem;
+      margin-bottom: 34px;
+    }
+    .about-banner-capsule {
+      border-radius: 28px;
+      padding: 68px 48px;
+      margin: 0 auto;
+      box-shadow: 0 25px 60px -15px rgba(3, 8, 24, 0.45);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+    .banner-luxe-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    /* Tablet & Medium Screens (<= 1024px) */
+    @media (max-width: 1024px) {
+      .about-section {
+        padding: 68px 0;
+      }
+      .about-narrative-grid {
+        grid-template-columns: 1fr !important;
+        gap: 36px !important;
+      }
+      .qualities-grid {
+        grid-template-columns: 1fr !important;
+        gap: 22px !important;
+      }
+      .stakeholders-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+      }
+      .standing-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+    }
+
+    /* Mobile Phones & Tablets (<= 768px) */
+    @media (max-width: 768px) {
+      .about-section {
+        padding: 34px 0 !important;
+      }
+      .about-banner-section {
+        padding: 34px 0 !important;
+      }
+      .about-narrative-title {
+        font-size: clamp(1.4rem, 5vw, 1.75rem);
+        line-height: 1.22;
+        margin-bottom: 12px;
+      }
+      .about-narrative-grid {
+        gap: 24px !important;
+      }
+      .quality-pillar-card {
+        padding: 20px 18px;
+        border-radius: 12px;
+      }
+      .quality-icon-box {
+        width: 38px;
+        height: 38px;
+      }
+      .stakeholders-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+      }
+      .stakeholder-card {
+        padding: 18px 16px;
+        border-radius: 12px;
+      }
+      .standing-executive-card {
+        padding: 20px 18px;
+        border-radius: 14px;
+      }
+      .standing-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .banner-blue-luxe,
+      .about-banner-capsule {
+        border-radius: 14px !important;
+        padding: 24px 16px !important;
+      }
+      .banner-luxe-title {
+        font-size: 1.32rem !important;
+        line-height: 1.25;
+        margin-bottom: 10px;
+      }
+      .banner-luxe-desc {
+        font-size: 0.88rem !important;
+        line-height: 1.6;
+        margin-bottom: 18px;
+      }
+    }
+
+    /* Small Mobile Phones (<= 480px - iPhone SE, Galaxy, Pixel) */
+    @media (max-width: 480px) {
+      .about-section {
+        padding: 42px 0;
+      }
+      .about-narrative-title {
+        font-size: 1.52rem;
+        line-height: 1.24;
+      }
+      .positioning-highlight-box {
+        padding: 14px 16px;
+        margin: 16px 0 20px;
+        border-radius: 0 10px 10px 0;
+      }
+      .positioning-quote {
+        font-size: 1.02rem;
+        line-height: 1.35;
+      }
+      .positioning-subquote {
+        font-size: 0.82rem;
+        line-height: 1.5;
+      }
+      .about-image-card {
+        border-radius: 14px;
+      }
+      .about-image-caption {
+        padding: 16px 18px;
+      }
+      .image-glass-pill {
+        top: 10px;
+        left: 10px;
+        padding: 4px 10px;
+        font-size: 0.68rem;
+      }
+      .image-glass-badge {
+        bottom: 10px;
+        right: 10px;
+        padding: 6px 10px;
+        font-size: 0.72rem;
+        gap: 6px;
+      }
+      .image-glass-badge svg {
+        width: 15px !important;
+        height: 15px !important;
+      }
+      .quality-pillar-card {
+        padding: 22px 18px;
+        border-radius: 14px;
+      }
+      .quality-icon-box {
+        width: 44px;
+        height: 44px;
+      }
+      .stakeholder-card {
+        padding: 18px 16px;
+        border-radius: 14px;
+      }
+      .stakeholder-number {
+        width: 32px;
+        height: 32px;
+        font-size: 0.82rem;
+        border-radius: 8px;
+      }
+      .standing-executive-card {
+        padding: 22px 18px;
+        border-radius: 14px;
+        gap: 16px;
+      }
+      .standing-icon-container {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+      }
+      .standing-item-row {
+        font-size: 0.87rem;
+        padding: 8px 0;
+      }
+      .banner-blue-luxe,
+      .about-banner-capsule {
+        border-radius: 16px !important;
+        padding: 32px 18px !important;
+      }
+      .banner-luxe-title {
+        font-size: 1.42rem;
+        line-height: 1.25;
+      }
+      .banner-luxe-buttons {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+      }
+      .banner-luxe-buttons .btn {
+        width: 100% !important;
+        justify-content: center;
+        text-align: center;
+      }
+    }
+
+    /* Extra Narrow Devices (<= 360px) */
+    @media (max-width: 360px) {
+      .image-glass-badge {
+        font-size: 0.66rem;
+        padding: 5px 8px;
+        max-width: calc(100% - 20px);
+      }
+      .about-image-caption {
+        padding: 14px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <div class="top-bar-item">
+          <span class="status-pulse"></span>
+          <span id="office-status-text" class="status-indicator">Colombo Office Open</span>
+          <span style="color: rgba(255,255,255,0.4);">|</span>
+          <span id="colombo-time-display">08:30:00 AM IST (Colombo)</span>
+        </div>
+      </div>
+      <div class="top-bar-right">
+        <div class="top-bar-item"><a href="tel:+94112345678">+94 11 234 5678</a></div>
+        <div class="top-bar-item"><a href="mailto:enquiries@colomboassociates.lk">enquiries@colomboassociates.lk</a></div>
+        <div class="top-bar-item">
+          <span class="badge badge-dark">Colombo, Sri Lanka</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/icons/logo.svg" alt="Colombo Associates Logo" width="220" height="46">
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link active">About Us</a></li>
+          <li><a href="services.html" class="nav-link">Practice Areas</a></li>
+          <li><a href="international-desk.html" class="nav-link">International Desk</a></li>
+          <li><a href="people.html" class="nav-link">People</a></li>
+          <li><a href="insights.html" class="nav-link">Insights</a></li>
+          <li><a href="careers.html" class="nav-link">Careers</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary">Contact Us</a>
+        <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="mobile-drawer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop" aria-hidden="true"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <img src="assets/icons/logo.svg" alt="Colombo Associates" style="height:36px; width:auto;">
+      <button type="button" class="mobile-drawer-close" id="close-drawer" aria-label="Close Navigation Menu">
+        <svg style="width:24px;height:24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About Us</a></li>
+      <li><a href="services.html">Practice Areas</a></li>
+      <li><a href="international-desk.html">International Desk</a></li>
+      <li><a href="people.html">People</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div style="margin-top:auto; padding-top:20px; border-top:1px solid #e2e8f0;">
+      <a href="contact.html" class="btn btn-primary" style="width:100%;">Contact Us</a>
+    </div>
+  </aside>
+
+  <!-- Page Hero -->
+  <header class="page-hero">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>About Us</span>
+      </nav>
+      <div class="badge badge-dark">Firm Overview</div>
+      <h1 class="page-hero-title">About Colombo Associates</h1>
+      <p class="page-hero-lead">
+        Legal clarity. Commercial perspective. Cross-border connections. A practice focused on practical guidance, clear communication, and professional integrity in Sri Lanka.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section 1: Narrative & Approved Positioning -->
+    <section class="about-section" style="background-color:#ffffff;">
+      <div class="container about-narrative-grid">
+        <div>
+          <span class="section-eyebrow">Approved Positioning</span>
+          <h2 class="about-narrative-title">
+            A legal and corporate services provider grounded in commercial realities.
+          </h2>
+
+          <!-- Luxury Core Positioning Pull-Quote -->
+          <div class="positioning-highlight-box">
+            <div class="positioning-quote">
+              "Legal clarity. Commercial perspective. Cross-border connections."
+            </div>
+            <div class="positioning-subquote">
+              Authorised Sri Lankan legal and corporate services for local enterprises, foreign investors, and international advisers.
+            </div>
+          </div>
+
+          <div style="font-size:1.04rem; color:var(--color-text-muted); line-height:1.8; display:flex; flex-direction:column; gap:18px;">
+            <p>
+              <strong>Colombo Associates</strong> delivers multidisciplinary legal, corporate and strategic support to domestic enterprises, foreign investors, institutions and professional advisers navigating matters in Sri Lanka and across borders.
+            </p>
+            <p>
+              Rooted in commercial realities and guided by an international outlook, our practice brings together legal advisory, corporate governance, and statutory compliance into a coordinated, responsive client journey. We provide clear assessments, defined next steps, and disciplined follow-through strictly within our authorised scope of Sri Lankan practice.
+            </p>
+            <p>
+              Our service model is defined by practical guidance, straightforward communication free from unnecessary legalese, and an unwavering commitment to professionalism, integrity, and responsiveness.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <!-- Elevated Image Container -->
+          <div class="about-image-card">
+            <div style="position:relative; overflow:hidden;">
+              <img src="assets/images/boardroom-meeting.jpg" alt="Colombo Associates Consultation Session" style="width:100%; height:auto; display:block;">
+              
+              <!-- Floating Glass Pills -->
+              <div class="image-glass-pill">
+                <span class="status-pulse" style="width:8px; height:8px; background:#38bdf8; box-shadow:0 0 10px #38bdf8;"></span>
+                <span>Colombo Practice</span>
+              </div>
+              <div class="image-glass-badge">
+                <svg style="width:18px;height:18px;color:#0084ff;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Commercial & Cross-Border Focus</span>
+              </div>
+            </div>
+
+            <!-- Enhanced Caption Box -->
+            <div class="about-image-caption">
+              <div style="font-weight:700; color:var(--color-primary); font-size:1rem; font-family:var(--font-display);">Responsive Client Journey</div>
+              <div style="font-size:0.86rem; color:var(--color-text-muted); margin-top:4px; line-height:1.55;">Structured milestones, transparent engagement terms, and coordinated local support.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Core Brand Qualities (Principles Guiding Our Practice) -->
+    <section class="about-section" style="background-color:#f8fafc; border-top:1px solid #f1f5f9; border-bottom:1px solid #f1f5f9;">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-eyebrow">Core Qualities</span>
+          <h2 class="section-title">The Principles Guiding Our Practice</h2>
+          <p class="section-subtitle">What defines our service model for local and international clients.</p>
+        </div>
+
+        <div class="qualities-grid">
+          <!-- Quality 1 -->
+          <div class="quality-pillar-card">
+            <div class="quality-header-row">
+              <div class="quality-icon-box">
+                <svg style="width:24px;height:24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              </div>
+              <span class="pillar-tag">PILLAR 01</span>
+            </div>
+            <h3 style="font-family:var(--font-display); font-size:1.28rem; font-weight:700; color:var(--color-primary); margin-bottom:12px; line-height:1.3;">
+              International in Outlook
+            </h3>
+            <p style="font-size:0.91rem; color:var(--color-text-muted); line-height:1.7;">
+              International in outlook, grounded in Sri Lankan legal and commercial realities. We understand the communication, procedural, and coordination needs of overseas clients and foreign advisers.
+            </p>
+          </div>
+
+          <!-- Quality 2 -->
+          <div class="quality-pillar-card">
+            <div class="quality-header-row">
+              <div class="quality-icon-box">
+                <svg style="width:24px;height:24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+              </div>
+              <span class="pillar-tag">PILLAR 02</span>
+            </div>
+            <h3 style="font-family:var(--font-display); font-size:1.28rem; font-weight:700; color:var(--color-primary); margin-bottom:12px; line-height:1.3;">
+              Professional & Approachable
+            </h3>
+            <p style="font-size:0.91rem; color:var(--color-text-muted); line-height:1.7;">
+              Professional and approachable, with a clear, responsive client journey. Defined next steps, practical guidance, and disciplined follow-through at every milestone.
+            </p>
+          </div>
+
+          <!-- Quality 3 -->
+          <div class="quality-pillar-card">
+            <div class="quality-header-row">
+              <div class="quality-icon-box">
+                <svg style="width:24px;height:24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              </div>
+              <span class="pillar-tag">PILLAR 03</span>
+            </div>
+            <h3 style="font-family:var(--font-display); font-size:1.28rem; font-weight:700; color:var(--color-primary); margin-bottom:12px; line-height:1.3;">
+              Multidisciplinary Capability
+            </h3>
+            <p style="font-size:0.91rem; color:var(--color-text-muted); line-height:1.7;">
+              Multidisciplinary, connecting legal, corporate, compliance and business-support needs into a coordinated, single point of delivery.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Target Audiences (Serving Core Stakeholders) -->
+    <section class="about-section" style="background-color:#ffffff;">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Client Groups</span>
+          <h2 class="section-title">Serving Core Stakeholders in Sri Lanka & Across Borders</h2>
+          <p class="section-subtitle">Tailored support configured for specific commercial, regulatory and institutional requirements.</p>
+        </div>
+
+        <div class="stakeholders-grid">
+          <!-- Audience 01 -->
+          <div class="stakeholder-card">
+            <div class="stakeholder-top-row">
+              <div class="stakeholder-number">01</div>
+              <span class="stakeholder-category-pill">Corporate Entities</span>
+            </div>
+            <h3 style="font-family:var(--font-display); font-size:1.12rem; font-weight:700; color:var(--color-primary); margin-bottom:8px; line-height:1.35;">
+              Sri Lankan & Overseas Companies
+            </h3>
+            <p style="font-size:0.89rem; color:var(--color-text-muted); line-height:1.62;">
+              Sri Lankan and overseas companies doing business in Sri Lanka requiring structuring, commercial contracts, statutory filings, and ongoing compliance.
+            </p>
+          </div>
+
+          <!-- Audience 02 -->
+          <div class="stakeholder-card">
+            <div class="stakeholder-top-row">
+              <div class="stakeholder-number">02</div>
+              <span class="stakeholder-category-pill">Foreign Direct Investment</span>
+            </div>
+            <h3 style="font-family:var(--font-display); font-size:1.12rem; font-weight:700; color:var(--color-primary); margin-bottom:8px; line-height:1.35;">
+              Foreign Investors, Founders, Shareholders & Directors
+            </h3>
+            <p style="font-size:0.89rem; color:var(--color-text-muted); line-height:1.62;">
+              Foreign investors, founders, shareholders and directors seeking local legal, investment or corporate governance support in Sri Lanka.
+            </p>
+          </div>
+
+          <!-- Audience 03 -->
+          <div class="stakeholder-card">
+            <div class="stakeholder-top-row">
+              <div class="stakeholder-number">03</div>
+              <span class="stakeholder-category-pill">Growth & Governance</span>
+            </div>
+            <h3 style="font-family:var(--font-display); font-size:1.12rem; font-weight:700; color:var(--color-primary); margin-bottom:8px; line-height:1.35;">
+              SMEs, Entrepreneurs & Growing Businesses
+            </h3>
+            <p style="font-size:0.89rem; color:var(--color-text-muted); line-height:1.62;">
+              SMEs, entrepreneurs and growing businesses needing ongoing legal advisory and corporate secretarial services.
+            </p>
+          </div>
+
+          <!-- Audience 04 -->
+          <div class="stakeholder-card">
+            <div class="stakeholder-top-row">
+              <div class="stakeholder-number">04</div>
+              <span class="stakeholder-category-pill">Global Co-Counsel</span>
+            </div>
+            <h3 style="font-family:var(--font-display); font-size:1.12rem; font-weight:700; color:var(--color-primary); margin-bottom:8px; line-height:1.35;">
+              International Law Firms & Professional Advisers
+            </h3>
+            <p style="font-size:0.89rem; color:var(--color-text-muted); line-height:1.62;">
+              International law firms and professional advisers seeking Sri Lankan legal support or a dependable local point of contact.
+            </p>
+          </div>
+
+          <!-- Audience 05 -->
+          <div class="stakeholder-card">
+            <div class="stakeholder-top-row">
+              <div class="stakeholder-number">05</div>
+              <span class="stakeholder-category-pill">Direct Representation</span>
+            </div>
+            <h3 style="font-family:var(--font-display); font-size:1.12rem; font-weight:700; color:var(--color-primary); margin-bottom:8px; line-height:1.35;">
+              Individuals Requiring Services Within Authorised Scope
+            </h3>
+            <p style="font-size:0.89rem; color:var(--color-text-muted); line-height:1.62;">
+              Individuals requiring legal, documentation, notarial or dispute-resolution services strictly within the firm's authorised scope.
+            </p>
+          </div>
+
+          <!-- Audience 06 -->
+          <div class="stakeholder-card">
+            <div class="stakeholder-top-row">
+              <div class="stakeholder-number">06</div>
+              <span class="stakeholder-category-pill">Institutional Sector</span>
+            </div>
+            <h3 style="font-family:var(--font-display); font-size:1.12rem; font-weight:700; color:var(--color-primary); margin-bottom:8px; line-height:1.35;">
+              NGOs, Charities & Social-Impact Organisations
+            </h3>
+            <p style="font-size:0.89rem; color:var(--color-text-muted); line-height:1.62;">
+              NGOs, charities and social-impact organisations requiring institutional governance, compliance or legal support in Sri Lanka.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Office Location & Professional Standing (Authoritative Layout) -->
+    <section class="about-section" style="background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-eyebrow">Standing & Location</span>
+          <h2 class="section-title">Office Location & Professional Standing</h2>
+          <p class="section-subtitle">Operational presence in Colombo and adherence to Sri Lankan professional standards.</p>
+        </div>
+
+        <div class="standing-grid">
+          
+          <!-- Card 1: Office Location & Operational Liaison -->
+          <div class="standing-executive-card">
+            <div class="standing-header-row">
+              <div class="standing-title-group">
+                <div class="standing-icon-container">
+                  <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <div>
+                  <h3 style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--color-primary); margin: 0;">Colombo Office</h3>
+                  <span style="font-size: 0.82rem; color: var(--color-text-muted);">Commercial Centre Presence</span>
+                </div>
+              </div>
+              <span class="badge" style="background:rgba(8, 26, 68, 0.06); color:var(--color-primary); border-color:rgba(8, 26, 68, 0.15);">Operational Desk</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column;">
+              <div class="standing-item-row">
+                <svg class="standing-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <div>
+                  <strong style="color: var(--color-primary);">City & Jurisdiction:</strong> Colombo, Sri Lanka
+                </div>
+              </div>
+
+              <div class="standing-item-row">
+                <svg class="standing-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"></path><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path></svg>
+                <div>
+                  <strong style="color: var(--color-primary);">Physical Suite:</strong>
+                  <div style="color: #475569; font-size: 0.85rem; margin-top: 2px;">Physical suite and street address details are currently subject to confirmation prior to formal publication.</div>
+                </div>
+              </div>
+
+              <div class="standing-item-row">
+                <svg class="standing-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <div>
+                  <strong style="color: var(--color-primary);">Business Hours:</strong> Monday – Friday: 08:30 to 17:30 IST (UTC+5:30)
+                </div>
+              </div>
+
+              <div class="standing-item-row">
+                <svg class="standing-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <div>
+                  <strong style="color: var(--color-primary);">Intake Telephone:</strong> <a href="tel:+94112345678" style="color: var(--color-accent); font-weight: 700; text-decoration: underline;">+94 11 234 5678</a>
+                </div>
+              </div>
+
+              <div class="standing-item-row">
+                <svg class="standing-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <div>
+                  <strong style="color: var(--color-primary);">General Email:</strong> <a href="mailto:enquiries@colomboassociates.lk" style="color: var(--color-accent); font-weight: 700; text-decoration: underline;">enquiries@colomboassociates.lk</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Professional Standing & Regulatory Compliance -->
+          <div class="standing-executive-card">
+            <div class="standing-header-row">
+              <div class="standing-title-group">
+                <div class="standing-icon-container" style="color: #0284c7; background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(56, 189, 248, 0.16) 100%);">
+                  <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                <div>
+                  <h3 style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--color-primary); margin: 0;">Professional Standing</h3>
+                  <span style="font-size: 0.82rem; color: var(--color-text-muted);">Authorised Legal & Secretarial Practice</span>
+                </div>
+              </div>
+              <span class="badge" style="background:rgba(2, 132, 199, 0.08); color:#0284c7; border-color:rgba(2, 132, 199, 0.2);">Certified Standards</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column;">
+              <div class="standing-item-row">
+                <svg class="standing-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div>
+                  <strong style="color: var(--color-primary);">Bar Admission:</strong> Legal advisory, drafting and court representation are provided exclusively through enrolled Attorneys-at-Law of the Supreme Court of Sri Lanka.
+                </div>
+              </div>
+
+              <div class="standing-item-row">
+                <svg class="standing-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div>
+                  <strong style="color: var(--color-primary);">Professional Standards:</strong> Adherence to the professional rules, ethics, and standards of the Bar Association of Sri Lanka (BASL).
+                </div>
+              </div>
+
+              <div class="standing-item-row">
+                <svg class="standing-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div>
+                  <strong style="color: var(--color-primary);">Corporate Secretarial:</strong> Statutory governance and corporate filings are conducted through qualified Company Secretaries registered under Act No. 07 of 2007.
+                </div>
+              </div>
+
+              <div class="standing-item-row">
+                <svg class="standing-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                <div>
+                  <strong style="color: var(--color-primary);">Institutional Affiliations:</strong>
+                  <div style="color: #475569; font-size: 0.85rem; margin-top: 2px;">Formal bilateral network memberships or overseas law firm affiliations are subject to ongoing client confirmation; the practice operates independently.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Professional Standards Demarcation (Floating Luxury Capsule) -->
+    <section class="about-section about-banner-section" style="background-color: #ffffff;">
+      <div class="container about-banner-container">
+        <div class="banner-blue-luxe about-banner-capsule">
+          <div style="max-width: 900px; margin: 0 auto; text-align: center; position: relative; z-index: 2;">
+            <span class="badge-gold" style="margin-bottom: 18px;">Professional Standards & Scope</span>
+            <h2 class="banner-luxe-title">
+              Clarity of Scope & Regulatory Compliance
+            </h2>
+            <p class="banner-luxe-desc">
+              In strict compliance with professional guidelines, Colombo Associates clearly distinguishes legal advisory and court representation provided by admitted Attorneys-at-Law from company secretarial administrations and compliance services delivered through qualified Corporate Secretaries. We do not purport to advise on foreign laws and maintain complete conflict clearance protocols before accepting matters.
+            </p>
+            <div class="banner-luxe-buttons">
+              <a href="services.html" class="btn btn-primary" style="box-shadow: 0 8px 25px rgba(0, 132, 255, 0.35);">Explore 15 Practice Categories</a>
+              <a href="contact.html" class="btn btn-outline-white">Schedule an Enquiry</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <img src="assets/icons/logo-white.svg" alt="Colombo Associates" width="220" height="46">
+        </a>
+        <p>
+          Colombo Associates provides legal, corporate and strategic support to businesses, investors, organisations and individuals navigating matters in Sri Lanka and across borders.
+        </p>
+      </div>
+
+      <!-- Practice Navigation (15 Categories Aligned) -->
+      <div class="footer-col">
+        <h4>Practice Areas</h4>
+        <ul class="footer-links">
+          <li><a href="services.html#banking-finance">Banking & Finance</a></li>
+          <li><a href="services.html#corporate-commercial">Corporate & Commercial</a></li>
+          <li><a href="services.html#lawsuits-disputes">Lawsuits & Disputes</a></li>
+          <li><a href="services.html#employment-labor">Employment & Labor</a></li>
+          <li><a href="services.html#intellectual-property">Intellectual Property</a></li>
+          <li><a href="services.html#notary-services">Notary Services</a></li>
+          <li><a href="services.html#tax">Tax</a></li>
+          <li><a href="services.html">All 15 Categories &rarr;</a></li>
+        </ul>
+      </div>
+
+      <!-- Firm Links -->
+      <div class="footer-col">
+        <h4>The Practice</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About Colombo Associates</a></li>
+          <li><a href="international-desk.html">International Desk</a></li>
+          <li><a href="people.html">People</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="privacy.html">Privacy Notice</a></li>
+          <li><a href="terms.html">Legal Disclaimer</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Details -->
+      <div class="footer-col">
+        <h4>Colombo Office</h4>
+        <div class="footer-contact-info">
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Colombo, Sri Lanka (Office details subject to confirmation)</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <a href="tel:+94112345678" style="color:inherit;">+94 11 234 5678</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <a href="mailto:enquiries@colomboassociates.lk" style="color:inherit;">enquiries@colomboassociates.lk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mandatory Regulatory Safeguards Notice -->
+    <div class="container footer-disclaimer-box">
+      <strong>Regulatory & Publication Notice:</strong>
+      Colombo Associates is an independent legal and corporate services provider established in Sri Lanka. Information on this website is provided for general informational purposes only and does not constitute formal legal advice or representation. Legal advisory services, notarial attestations, and company secretarial administration are clearly distinguished and provided in strict compliance with the laws of the Democratic Socialist Republic of Sri Lanka and professional regulations governing admitted Attorneys-at-Law and Chartered Secretaries.
+    </div>
+
+    <div class="container footer-bottom">
+      <div>
+        © 2026 Colombo Associates. All rights reserved.
+      </div>
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Notice</a>
+        <a href="terms.html">Terms & Legal Disclaimer</a>
+        <a href="contact.html">Direct Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

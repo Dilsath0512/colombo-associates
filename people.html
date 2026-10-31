@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>People & Practice Leadership | Colombo Associates</title>
+  <meta name="description" content="Meet the practice leadership structure and professional profiles of Colombo Associates in Sri Lanka. Corporate law, litigation, secretarial governance, and cross-border advisory.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css?v=20261031_v10">
+  <style>
+    .team-card-lead {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(226, 232, 240, 0.85);
+      box-shadow: 0 4px 18px -2px rgba(8, 26, 68, 0.04);
+      display: flex;
+      flex-direction: column;
+      transition: all var(--transition-smooth);
+    }
+    .team-card-lead:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 45px -12px rgba(8, 26, 68, 0.12), 0 0 0 1px rgba(0, 132, 255, 0.15);
+      border-color: rgba(0, 132, 255, 0.35);
+    }
+    .lead-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--color-accent-light);
+      color: var(--color-accent);
+      margin-bottom: 8px;
+    }
+    .profile-photo-container {
+      width: 105px;
+      height: 130px;
+      border-radius: var(--radius-sm);
+      background: #f1f5f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+      font-size: 0.68rem;
+      text-align: center;
+      padding: 8px;
+      border: 1px dashed #cbd5e1;
+      flex-shrink: 0;
+    }
+    .profile-photo-container svg {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 4px;
+      color: #94a3b8;
+    }
+    .bio-modal-section {
+      margin-bottom: 14px;
+    }
+    .bio-modal-label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-accent);
+      margin-bottom: 3px;
+    }
+    .bio-modal-value {
+      font-size: 0.88rem;
+      color: #334155;
+      line-height: 1.55;
+    }
+    .pending-verification-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.74rem;
+      color: #475569;
+      background: #f1f5f9;
+      padding: 3px 9px;
+      border-radius: 4px;
+      border: 1px solid #e2e8f0;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <aside class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <div class="top-bar-item">
+          <span class="status-pulse"></span>
+          <span id="office-status-text" class="status-indicator">Colombo Office Open</span>
+          <span style="color: rgba(255,255,255,0.4);">|</span>
+          <span id="colombo-time-display">08:30:00 AM IST (Colombo)</span>
+        </div>
+      </div>
+      <div class="top-bar-right">
+        <div class="top-bar-item"><a href="tel:+94112345678">+94 11 234 5678</a></div>
+        <div class="top-bar-item"><a href="mailto:enquiries@colomboassociates.lk">enquiries@colomboassociates.lk</a></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Nav -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/icons/logo.svg" alt="Colombo Associates Logo" width="220" height="46">
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="services.html" class="nav-link">Practice Areas</a></li>
+          <li><a href="international-desk.html" class="nav-link">International Desk</a></li>
+          <li><a href="people.html" class="nav-link active">People</a></li>
+          <li><a href="insights.html" class="nav-link">Insights</a></li>
+          <li><a href="careers.html" class="nav-link">Careers</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary">Contact Us</a>
+        <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="mobile-drawer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop" aria-hidden="true"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <img src="assets/icons/logo.svg" alt="Colombo Associates" style="height:36px; width:auto;">
+      <button type="button" class="mobile-drawer-close" id="close-drawer" aria-label="Close Navigation Menu">
+        <svg style="width:24px;height:24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Practice Areas</a></li>
+      <li><a href="international-desk.html">International Desk</a></li>
+      <li><a href="people.html" class="active">People</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div style="margin-top:auto; padding-top:20px; border-top:1px solid #e2e8f0;">
+      <a href="contact.html" class="btn btn-primary" style="width:100%;">Contact Us</a>
+    </div>
+  </aside>
+
+  <!-- Page Hero -->
+  <header class="page-hero">
+    <div class="container">
+      <nav class="breadcrumbs">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>People</span>
+      </nav>
+      <div class="badge badge-dark">Practice Leadership</div>
+      <h1 class="page-hero-title">Practice Leadership & Profiles</h1>
+      <p class="page-hero-lead">
+        Meet the professionals behind Colombo Associates. Explore their experience, areas of practice, professional qualifications and commitment to providing practical Sri Lankan legal and corporate support.
+      </p>
+    </div>
+  </header>
+
+  <main class="main-content-area" style="background-color:var(--color-bg);">
+    <div class="container">
+
+      <!-- Professional Verification & Governance Notice -->
+      <div class="taxonomy-notice-banner" style="text-align:left; background:#ffffff; border:1px solid rgba(226, 232, 240, 0.95); border-left:4px solid var(--color-accent); padding:20px 24px; border-radius:12px; margin-bottom:36px; font-size:0.88rem; color:#334155; line-height:1.65; box-shadow:var(--shadow-sm);">
+        <strong style="color:var(--color-primary); font-size:0.92rem; display:block; margin-bottom:6px;">Professional Verification & Transparency Protocol:</strong>
+        Colombo Associates maintains strict adherence to Sri Lankan statutory standards and legal ethics. Individual partner profiles, Supreme Court enrollment details, and corporate secretarial registrations are published following formal client verification and regulatory confirmation. To verify specific counsel credentials or request an introductory conference with practice leadership, please contact our intake team directly.
+      </div>
+
+      <!-- Practice Leadership Profiles Grid (Two-Column Responsive Layout) -->
+      <div class="people-leadership-grid">
+
+        <!-- =======================================================================
+             DIVISION 01: CORPORATE & COMMERCIAL ADVISORY
+             ======================================================================= -->
+        <article class="team-card-lead">
+          <div class="team-card-lead-body">
+            <!-- Division Identification Header -->
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
+              <span class="lead-badge">Practice Division 01 – Corporate & Commercial Advisory</span>
+              <span class="pending-verification-tag" title="Client Verification Pending">
+                <svg style="width:12px;height:12px;color:#0284c7;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <span>Profile Subject to Client Sign-off</span>
+              </span>
+            </div>
+
+            <!-- Profile Title & Headshot Row -->
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:20px;">
+              <div>
+                <h2 style="font-family:var(--font-display); font-size:1.35rem; font-weight:800; color:var(--color-primary); margin-bottom:4px; line-height:1.25;">
+                  Partner – Corporate & Commercial Advisory
+                </h2>
+                <div style="font-size:0.88rem; font-weight:700; color:var(--color-accent); margin-bottom:4px;">
+                  Partner & Practice Group Leader
+                </div>
+                <div style="font-size:0.78rem; color:#64748b; line-height:1.4;">
+                  (Individual name & full CV subject to client publication approval)
+                </div>
+              </div>
+              <div class="profile-photo-container" title="Professional Portrait - Formal Photography Pending Client Submission" aria-label="Professional Portrait Placeholder - Formal Photography Pending Client Submission">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>Portrait Pending</span>
+              </div>
+            </div>
+
+            <!-- 3. Professional Biography -->
+            <div class="bio-modal-section">
+              <div class="bio-modal-label">Professional Biography</div>
+              <p class="bio-modal-value" style="color:#475569; margin:0;">
+                Advises domestic enterprises, multinational subsidiaries, and foreign investors on company incorporation, commercial contracts, mergers and acquisitions, joint ventures, and statutory compliance under Sri Lankan corporate law. Focuses on practical commercial solutions, transaction due diligence, and regulatory alignment under the Companies Act No. 07 of 2007.
+              </p>
+            </div>
+
+            <div style="border-top:1px solid var(--color-border); padding-top:16px; margin-bottom:20px; display:flex; flex-direction:column; gap:12px;">
+              <!-- 4. Main Practice Areas & Matters Handled -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Main Practice Areas & Matters Handled</div>
+                <div class="bio-modal-value">
+                  Company registration, commercial contracts, corporate governance, due diligence, franchising, mergers and acquisitions, private equity, and venture capital.
+                </div>
+              </div>
+
+              <!-- 5. Education & Professional Qualifications -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Education & Professional Qualifications</div>
+                <div class="bio-modal-value">
+                  Bachelor of Laws (LL.B.) / Legal Qualifications [Details subject to final client verification].
+                </div>
+              </div>
+
+              <!-- 6. Bar Admission / Professional Status -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Bar Admission & Professional Status</div>
+                <div class="bio-modal-value">
+                  Enrolled as Attorney-at-Law of the Supreme Court of Sri Lanka.
+                </div>
+              </div>
+
+              <!-- 7. Languages Spoken & 8. Office Location -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Languages Spoken & Office Location</div>
+                <div class="bio-modal-value">
+                  English, Sinhala • Colombo Office, Sri Lanka
+                </div>
+              </div>
+
+              <!-- 9. Verified Professional Affiliations -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Verified Professional Affiliations</div>
+                <div class="bio-modal-value">
+                  Bar Association of Sri Lanka (BASL)
+                </div>
+              </div>
+
+              <!-- 10. Selected Publications and Speaking Engagements -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Selected Publications & Speaking Engagements</div>
+                <div class="bio-modal-value">
+                  Corporate law commentaries and commercial seminar contributions [Details subject to client confirmation].
+                </div>
+              </div>
+            </div>
+
+            <!-- Functional Enquiry Button -->
+            <a href="contact.html?service=Corporate+%26+Commercial" class="btn btn-secondary btn-sm" style="width:100%; justify-content:center;">
+              <span>Enquire with Corporate Practice Group</span>
+              <svg style="width:14px;height:14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- =======================================================================
+             DIVISION 02: INTERNATIONAL DESK COORDINATION
+             ======================================================================= -->
+        <article class="team-card-lead">
+          <div class="team-card-lead-body">
+            <!-- Division Identification Header -->
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
+              <span class="lead-badge">Practice Division 02 – International Desk Coordination</span>
+              <span class="pending-verification-tag" title="Client Verification Pending">
+                <svg style="width:12px;height:12px;color:#0284c7;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <span>Profile Subject to Client Sign-off</span>
+              </span>
+            </div>
+
+            <!-- Profile Title & Headshot Row -->
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:20px;">
+              <div>
+                <h2 style="font-family:var(--font-display); font-size:1.35rem; font-weight:800; color:var(--color-primary); margin-bottom:4px; line-height:1.25;">
+                  Senior Counsel – Cross-Border & International Desk
+                </h2>
+                <div style="font-size:0.88rem; font-weight:700; color:var(--color-accent); margin-bottom:4px;">
+                  Lead Counsel & Cross-Border Coordinator
+                </div>
+                <div style="font-size:0.78rem; color:#64748b; line-height:1.4;">
+                  (Individual name & full CV subject to client publication approval)
+                </div>
+              </div>
+              <div class="profile-photo-container" title="Professional Portrait - Formal Photography Pending Client Submission" aria-label="Professional Portrait Placeholder - Formal Photography Pending Client Submission">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>Portrait Pending</span>
+              </div>
+            </div>
+
+            <!-- 3. Professional Biography -->
+            <div class="bio-modal-section">
+              <div class="bio-modal-label">Professional Biography</div>
+              <p class="bio-modal-value" style="color:#475569; margin:0;">
+                Coordinates cross-border legal advisory, foreign direct investment structuring, and direct liaison between overseas legal counsel and Sri Lankan statutory authorities. Specialises in regulatory mapping, Board of Investment (BOI) documentation, and multi-jurisdictional transaction support, providing international clients with clear English-language reporting and coordinated Sri Lankan legal guidance.
+              </p>
+            </div>
+
+            <div style="border-top:1px solid var(--color-border); padding-top:16px; margin-bottom:20px; display:flex; flex-direction:column; gap:12px;">
+              <!-- 4. Main Practice Areas & Matters Handled -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Main Practice Areas & Matters Handled</div>
+                <div class="bio-modal-value">
+                  Cross-border transactions, overseas investor legal coordination, foreign exchange regulatory mapping, Board of Investment (BOI) structuring, and international co-counsel advisory.
+                </div>
+              </div>
+
+              <!-- 5. Education & Professional Qualifications -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Education & Professional Qualifications</div>
+                <div class="bio-modal-value">
+                  Bachelor of Laws (LL.B.) / Postgraduate Qualifications in International Law [Details subject to final client verification].
+                </div>
+              </div>
+
+              <!-- 6. Bar Admission / Professional Status -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Bar Admission & Professional Status</div>
+                <div class="bio-modal-value">
+                  Enrolled as Attorney-at-Law of the Supreme Court of Sri Lanka.
+                </div>
+              </div>
+
+              <!-- 7. Languages Spoken & 8. Office Location -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Languages Spoken & Office Location</div>
+                <div class="bio-modal-value">
+                  English, Sinhala • Colombo International Desk, Sri Lanka
+                </div>
+              </div>
+
+              <!-- 9. Verified Professional Affiliations -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Verified Professional Affiliations</div>
+                <div class="bio-modal-value">
+                  Bar Association of Sri Lanka (BASL)
+                </div>
+              </div>
+
+              <!-- 10. Selected Publications and Speaking Engagements -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Selected Publications & Speaking Engagements</div>
+                <div class="bio-modal-value">
+                  Cross-border investment guides and international panel discussions [Details subject to client confirmation].
+                </div>
+              </div>
+            </div>
+
+            <!-- Functional Enquiry Button -->
+            <a href="international-desk.html#international-enquiry" class="btn btn-secondary btn-sm" style="width:100%; justify-content:center;">
+              <span>Connect via International Desk</span>
+              <svg style="width:14px;height:14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- =======================================================================
+             DIVISION 03: COMMERCIAL LITIGATION & DISPUTES
+             ======================================================================= -->
+        <article class="team-card-lead">
+          <div class="team-card-lead-body">
+            <!-- Division Identification Header -->
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
+              <span class="lead-badge">Practice Division 03 – Commercial Litigation & Disputes</span>
+              <span class="pending-verification-tag" title="Client Verification Pending">
+                <svg style="width:12px;height:12px;color:#0284c7;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <span>Profile Subject to Client Sign-off</span>
+              </span>
+            </div>
+
+            <!-- Profile Title & Headshot Row -->
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:20px;">
+              <div>
+                <h2 style="font-family:var(--font-display); font-size:1.35rem; font-weight:800; color:var(--color-primary); margin-bottom:4px; line-height:1.25;">
+                  Partner – Commercial Litigation & Dispute Resolution
+                </h2>
+                <div style="font-size:0.88rem; font-weight:700; color:var(--color-accent); margin-bottom:4px;">
+                  Partner & Dispute Resolution Counsel
+                </div>
+                <div style="font-size:0.78rem; color:#64748b; line-height:1.4;">
+                  (Individual name & full CV subject to client publication approval)
+                </div>
+              </div>
+              <div class="profile-photo-container" title="Professional Portrait - Formal Photography Pending Client Submission" aria-label="Professional Portrait Placeholder - Formal Photography Pending Client Submission">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>Portrait Pending</span>
+              </div>
+            </div>
+
+            <!-- 3. Professional Biography -->
+            <div class="bio-modal-section">
+              <div class="bio-modal-label">Professional Biography</div>
+              <p class="bio-modal-value" style="color:#475569; margin:0;">
+                Represents corporate entities, commercial banks, and individual clients across contentious matters, contractual breaches, debt recovery before the Commercial High Court, and commercial arbitration. Focuses on pragmatic dispute prevention strategies, interim enjoining orders, and court advocacy conducted in accordance with Supreme Court standards.
+              </p>
+            </div>
+
+            <div style="border-top:1px solid var(--color-border); padding-top:16px; margin-bottom:20px; display:flex; flex-direction:column; gap:12px;">
+              <!-- 4. Main Practice Areas & Matters Handled -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Main Practice Areas & Matters Handled</div>
+                <div class="bio-modal-value">
+                  Commercial litigation, international arbitration, mediation, appeals, construction disputes, debt recovery, and corporate insolvency.
+                </div>
+              </div>
+
+              <!-- 5. Education & Professional Qualifications -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Education & Professional Qualifications</div>
+                <div class="bio-modal-value">
+                  Bachelor of Laws (LL.B.) / Advocate Qualifications [Details subject to final client verification].
+                </div>
+              </div>
+
+              <!-- 6. Bar Admission / Professional Status -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Bar Admission & Professional Status</div>
+                <div class="bio-modal-value">
+                  Enrolled as Attorney-at-Law of the Supreme Court of Sri Lanka.
+                </div>
+              </div>
+
+              <!-- 7. Languages Spoken & 8. Office Location -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Languages Spoken & Office Location</div>
+                <div class="bio-modal-value">
+                  English, Sinhala • Colombo Office, Sri Lanka
+                </div>
+              </div>
+
+              <!-- 9. Verified Professional Affiliations -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Verified Professional Affiliations</div>
+                <div class="bio-modal-value">
+                  Bar Association of Sri Lanka (BASL)
+                </div>
+              </div>
+
+              <!-- 10. Selected Publications and Speaking Engagements -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Selected Publications & Speaking Engagements</div>
+                <div class="bio-modal-value">
+                  Commercial arbitration notes and civil advocacy commentary [Details subject to client confirmation].
+                </div>
+              </div>
+            </div>
+
+            <!-- Functional Enquiry Button -->
+            <a href="contact.html?service=Lawsuits+%26+Disputes" class="btn btn-secondary btn-sm" style="width:100%; justify-content:center;">
+              <span>Consult on Dispute Matter</span>
+              <svg style="width:14px;height:14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- =======================================================================
+             DIVISION 04: COMPANY SECRETARIAL & GOVERNANCE
+             ======================================================================= -->
+        <article class="team-card-lead">
+          <div class="team-card-lead-body">
+            <!-- Division Identification Header -->
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
+              <span class="lead-badge">Practice Division 04 – Company Secretarial & Governance</span>
+              <span class="pending-verification-tag" title="Client Verification Pending">
+                <svg style="width:12px;height:12px;color:#0284c7;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <span>Profile Subject to Client Sign-off</span>
+              </span>
+            </div>
+
+            <!-- Profile Title & Headshot Row -->
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:20px;">
+              <div>
+                <h2 style="font-family:var(--font-display); font-size:1.35rem; font-weight:800; color:var(--color-primary); margin-bottom:4px; line-height:1.25;">
+                  Director – Corporate Secretarial Practice
+                </h2>
+                <div style="font-size:0.88rem; font-weight:700; color:var(--color-accent); margin-bottom:4px;">
+                  Director, Corporate Secretarial & Statutory Governance
+                </div>
+                <div style="font-size:0.78rem; color:#64748b; line-height:1.4;">
+                  (Individual name & full CV subject to client publication approval)
+                </div>
+              </div>
+              <div class="profile-photo-container" title="Professional Portrait - Formal Photography Pending Client Submission" aria-label="Professional Portrait Placeholder - Formal Photography Pending Client Submission">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>Portrait Pending</span>
+              </div>
+            </div>
+
+            <!-- 3. Professional Biography -->
+            <div class="bio-modal-section">
+              <div class="bio-modal-label">Professional Biography</div>
+              <p class="bio-modal-value" style="color:#475569; margin:0;">
+                Oversees statutory corporate secretarial administration, annual statutory returns with the Department of the Registrar of Companies (ROC), board documentation, and regulatory register maintenance. Works closely with corporate boards and foreign subsidiaries to maintain statutory hygiene and adherence to the Companies Act No. 07 of 2007.
+              </p>
+            </div>
+
+            <div style="border-top:1px solid var(--color-border); padding-top:16px; margin-bottom:20px; display:flex; flex-direction:column; gap:12px;">
+              <!-- 4. Main Practice Areas & Matters Handled -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Main Practice Areas & Matters Handled</div>
+                <div class="bio-modal-value">
+                  Company secretarial administration, board meetings and minutes, ROC annual returns, share transfers, and corporate governance hygiene under Act No. 07 of 2007.
+                </div>
+              </div>
+
+              <!-- 5. Education & Professional Qualifications -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Education & Professional Qualifications</div>
+                <div class="bio-modal-value">
+                  Chartered Secretary / Corporate Governance Qualifications [Details subject to final client verification].
+                </div>
+              </div>
+
+              <!-- 6. Bar Admission / Professional Status -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Professional Status & Licensing</div>
+                <div class="bio-modal-value">
+                  Licensed Company Secretary registered under the Companies Act No. 07 of 2007, Registrar of Companies (ROC) Sri Lanka.
+                </div>
+              </div>
+
+              <!-- 7. Languages Spoken & 8. Office Location -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Languages Spoken & Office Location</div>
+                <div class="bio-modal-value">
+                  English, Sinhala, Tamil • Colombo Secretarial Division, Sri Lanka
+                </div>
+              </div>
+
+              <!-- 9. Verified Professional Affiliations -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Verified Professional Affiliations</div>
+                <div class="bio-modal-value">
+                  Institute of Chartered Secretaries & Administrators / Recognized Secretarial Body [Subject to client confirmation].
+                </div>
+              </div>
+
+              <!-- 10. Selected Publications and Speaking Engagements -->
+              <div class="bio-modal-section" style="margin-bottom:0;">
+                <div class="bio-modal-label">Selected Publications & Speaking Engagements</div>
+                <div class="bio-modal-value">
+                  Corporate secretarial guidelines and statutory compliance checklists [Details subject to client confirmation].
+                </div>
+              </div>
+            </div>
+
+            <!-- Functional Enquiry Button -->
+            <a href="contact.html?service=Corporate+%26+Commercial" class="btn btn-secondary btn-sm" style="width:100%; justify-content:center;">
+              <span>Request Secretarial Support</span>
+              <svg style="width:14px;height:14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Section 7: Bottom CTA Section (Direct Partner Liaison) -->
+      <div class="card-blue-luxe" style="margin-top: 56px;">
+        <div class="card-blue-luxe-grid">
+          <div>
+            <span class="badge-gold" style="margin-bottom: 14px;">Direct Partner Liaison</span>
+            <h3 class="luxe-cta-title">
+              Consult With Our Practice Leaders & Senior Counsel
+            </h3>
+            <p style="font-size: 0.96rem; line-height: 1.7; color: rgba(255, 255, 255, 0.82);">
+              Whether you are structuring a commercial transaction, addressing a dispute or managing corporate governance requirements, our professional team can help identify the appropriate next step within its authorised scope.
+            </p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 14px; align-items: flex-start; justify-content: center;">
+            <a href="contact.html?intent=scoping-call" class="btn btn-primary" style="width: 100%; justify-content: center;">
+              <span>Schedule Initial Scoping Call</span>
+              <svg style="width: 16px; height: 16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+            <a href="services.html" class="btn btn-outline-white" style="width: 100%; justify-content: center;">
+              Explore Practice Areas (15 Categories)
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <!-- Site Footer (Sections 12 & 13) -->
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <img src="assets/icons/logo-white.svg" alt="Colombo Associates" width="220" height="46">
+        </a>
+        <p>
+          Colombo Associates provides legal, corporate and strategic support to businesses, investors, organisations and individuals navigating matters in Sri Lanka and across borders.
+        </p>
+      </div>
+
+      <!-- Practice Navigation (15 Categories Aligned) -->
+      <div class="footer-col">
+        <h4>Practice Areas</h4>
+        <ul class="footer-links">
+          <li><a href="services.html#banking-finance">Banking & Finance</a></li>
+          <li><a href="services.html#corporate-commercial">Corporate & Commercial</a></li>
+          <li><a href="services.html#lawsuits-disputes">Lawsuits & Disputes</a></li>
+          <li><a href="services.html#employment-labor">Employment & Labor</a></li>
+          <li><a href="services.html#intellectual-property">Intellectual Property</a></li>
+          <li><a href="services.html#notary-services">Notary Services</a></li>
+          <li><a href="services.html#tax">Tax</a></li>
+          <li><a href="services.html">All 15 Categories &rarr;</a></li>
+        </ul>
+      </div>
+
+      <!-- Firm Links -->
+      <div class="footer-col">
+        <h4>The Practice</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About Colombo Associates</a></li>
+          <li><a href="international-desk.html">International Desk</a></li>
+          <li><a href="people.html">People</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="privacy.html">Privacy Notice</a></li>
+          <li><a href="terms.html">Legal Disclaimer</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Details -->
+      <div class="footer-col">
+        <h4>Colombo Office</h4>
+        <div class="footer-contact-info">
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Colombo, Sri Lanka (Office details subject to confirmation)</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <a href="tel:+94112345678" style="color:inherit;">+94 11 234 5678</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <a href="mailto:enquiries@colomboassociates.lk" style="color:inherit;">enquiries@colomboassociates.lk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mandatory Regulatory Safeguards Notice -->
+    <div class="container footer-disclaimer-box">
+      <strong>Regulatory & Publication Notice:</strong>
+      Colombo Associates is an independent legal and corporate services provider established in Sri Lanka. Information on this website is provided for general informational purposes only and does not constitute formal legal advice or representation. Legal advisory services, notarial attestations, and company secretarial administration are clearly distinguished and provided in strict compliance with the laws of the Democratic Socialist Republic of Sri Lanka and professional regulations governing admitted Attorneys-at-Law and Chartered Secretaries.
+    </div>
+
+    <div class="container footer-bottom">
+      <div>
+        © 2026 Colombo Associates. All rights reserved.
+      </div>
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Notice</a>
+        <a href="terms.html">Terms & Legal Disclaimer</a>
+        <a href="contact.html">Direct Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

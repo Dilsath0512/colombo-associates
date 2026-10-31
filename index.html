@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colombo Associates | Legal Insight for Business in a Connected World</title>
+  <meta name="description" content="Colombo Associates delivers legal, corporate and strategic support to businesses, investors and individuals in Sri Lanka, with an international outlook and cross-border capability.">
+  <meta name="keywords" content="Sri Lanka legal services, corporate law Sri Lanka, company secretarial, foreign investment, dispute resolution, Colombo legal services">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="css/style.css?v=20261031_v10">
+</head>
+<body>
+
+  <!-- Top Announcement / Live Time Bar -->
+  <aside class="top-bar" aria-label="Quick contact and office status">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <div class="top-bar-item">
+          <span class="status-pulse"></span>
+          <span id="office-status-text" class="status-indicator">Colombo Office Open</span>
+          <span style="color: rgba(255,255,255,0.4);">|</span>
+          <span id="colombo-time-display">08:30:00 AM IST (Colombo)</span>
+        </div>
+      </div>
+      <div class="top-bar-right">
+        <div class="top-bar-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <a href="tel:+94112345678" id="quick-call-link">+94 11 234 5678</a>
+        </div>
+        <div class="top-bar-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <a href="mailto:enquiries@colomboassociates.lk" id="quick-email-link">enquiries@colomboassociates.lk</a>
+        </div>
+        <div class="top-bar-item">
+          <span class="badge badge-dark" style="text-transform:none; font-size:0.75rem; padding:3px 10px;">Colombo, Sri Lanka</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Main Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo" aria-label="Colombo Associates Homepage">
+        <img src="assets/icons/logo.svg" alt="Colombo Associates Logo" width="220" height="46">
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="services.html" class="nav-link">Practice Areas</a></li>
+          <li><a href="international-desk.html" class="nav-link">International Desk</a></li>
+          <li><a href="people.html" class="nav-link">People</a></li>
+          <li><a href="insights.html" class="nav-link">Insights</a></li>
+          <li><a href="careers.html" class="nav-link">Careers</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Action -->
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-primary" id="header-cta-btn">Contact Us</a>
+        <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="mobile-drawer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay & Menu (Strictly positioned and hidden on desktop) -->
+  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop" aria-hidden="true"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <img src="assets/icons/logo.svg" alt="Colombo Associates" style="height:36px; width:auto;">
+      <button type="button" class="mobile-drawer-close" id="close-drawer" aria-label="Close Navigation Menu">
+        <svg style="width:24px;height:24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Practice Areas</a></li>
+      <li><a href="international-desk.html">International Desk</a></li>
+      <li><a href="people.html">People</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div style="margin-top:auto; padding-top:20px; border-top:1px solid #e2e8f0;">
+      <a href="#contact" class="btn btn-primary" style="width:100%; margin-bottom:12px;">Contact Colombo Associates</a>
+      <div style="font-size:0.8rem; color:#64748b; text-align:center;">
+        Colombo, Sri Lanka<br>+94 11 234 5678
+      </div>
+    </div>
+  </aside>
+
+  <!-- =======================================================================
+       HOMEPAGE HERO SECTION
+       ======================================================================= -->
+  <section class="hero-section" id="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-grid">
+        <div class="hero-text-content">
+          <div class="badge badge-dark hero-pill-badge">
+            <span class="badge-dot"></span>
+            <span class="hero-badge-title">Sri Lankan Legal & Corporate Services</span>
+            <span class="hero-badge-divider">•</span>
+            <span class="hero-badge-sub">Cross-Border Capability</span>
+          </div>
+
+          <h1 class="hero-headline">
+            Legal insight for business in a <span class="text-highlight">connected world.</span>
+          </h1>
+
+          <p class="hero-description">
+            Colombo Associates delivers legal, corporate and strategic support to businesses, investors and individuals in Sri Lanka, with an international outlook and a practical understanding of the matters that move business forward.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#contact" class="btn btn-primary btn-lg" id="hero-discuss-btn">
+              <span>Discuss Your Matter</span>
+              <svg style="width:18px;height:18px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="services.html" class="btn btn-outline-white btn-lg" id="hero-explore-btn">
+              <span>Explore Our Services</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual-card">
+          <img src="assets/images/colombo-skyline.jpg" alt="Colombo Business and Waterfront Skyline" loading="eager" width="600" height="450">
+          <div class="hero-floating-badge">
+            <div class="floating-icon">
+              <svg style="width:24px;height:24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            </div>
+            <div>
+              <div class="floating-text-primary">Colombo Commercial Center</div>
+              <div class="floating-text-sub">Connecting local jurisprudence with cross-border trade & investment</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Factual Feature Bar -->
+    <section class="trust-bar" aria-label="Practice Dimensions">
+      <div class="container trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg style="width:22px;height:22px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <div>
+            <div class="trust-title">15 Practice Categories</div>
+            <div class="trust-subtitle">Multidisciplinary corporate, advisory & dispute coverage</div>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg style="width:22px;height:22px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+          </div>
+          <div>
+            <div class="trust-title">Cross-Border Coordination</div>
+            <div class="trust-subtitle">Sri Lankan point of contact for overseas investors & counsel</div>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg style="width:22px;height:22px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+          </div>
+          <div>
+            <div class="trust-title">Company Secretarial Support</div>
+            <div class="trust-subtitle">Governance & statutory compliance under Act No. 7 of 2007</div>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg style="width:22px;height:22px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          </div>
+          <div>
+            <div class="trust-title">Scope & Conflict Protocols</div>
+            <div class="trust-subtitle">Objective assessment & transparent engagement terms</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <main id="main-content">
+    <!-- =======================================================================
+         INTRODUCTORY STATEMENT
+         ======================================================================= -->
+    <section class="intro-statement-section" id="statement">
+      <div class="container">
+        <div class="statement-box">
+          <span class="section-eyebrow">A Legal Partner</span>
+          <h2 class="statement-headline">A legal partner with a wider perspective</h2>
+          <p class="statement-copy">
+            Legal matters rarely exist in isolation. Corporate decisions can involve regulatory requirements, contracts, governance, disputes and cross-border considerations at the same time. Colombo Associates brings these perspectives together to help clients understand their options, manage risk and move forward with greater clarity.
+          </p>
+          <div class="statement-pillars">
+            <div class="pillar-item">
+              <span class="pillar-num">01</span>
+              <div>
+                <h3 class="pillar-name">Commercial Clarity</h3>
+                <p class="pillar-desc">Advice formulated with your operational goals, timelines, and commercial realities directly at the center.</p>
+              </div>
+            </div>
+            <div class="pillar-item">
+              <span class="pillar-num">02</span>
+              <div>
+                <h3 class="pillar-name">Integrated Execution</h3>
+                <p class="pillar-desc">Legal counsel, company secretarial filings, and compliance coordinated seamlessly under defined scope.</p>
+              </div>
+            </div>
+            <div class="pillar-item">
+              <span class="pillar-num">03</span>
+              <div>
+                <h3 class="pillar-name">Cross-Border Bridge</h3>
+                <p class="pillar-desc">Deep familiarity with foreign investor needs, international law firm collaboration, and Sri Lankan legal frameworks.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>    <!-- =======================================================================
+         PRACTICE AREAS PREVIEW (6 FEATURED CATEGORIES)
+         ======================================================================= -->
+    <section class="practice-areas-section" id="practice-areas">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-eyebrow">Practice Overview</span>
+          <h2 class="section-title">Practice Areas</h2>
+          <p class="section-subtitle">
+            Providing tailored legal, corporate secretarial, and strategic solutions across commercial and private sectors in Sri Lanka.
+          </p>
+        </div>
+
+        <div class="practice-grid">
+          <!-- 1. Corporate & Commercial -->
+          <article class="practice-card" data-category="corporate-commercial">
+            <div class="practice-card-icon">
+              <svg style="width:24px;height:24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+            </div>
+            <h3 class="practice-card-title">Corporate & Commercial</h3>
+            <p class="practice-card-desc">
+              Company formation, commercial contracts, business structuring, corporate governance, joint ventures, shareholder agreements, and corporate advisory.
+            </p>
+            <a href="services.html#corporate-commercial" class="practice-card-link" data-practice-key="corporate-commercial">
+              <span>View Details</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+          </article>
+
+          <!-- 2. Banking & Finance -->
+          <article class="practice-card" data-category="corporate-commercial">
+            <div class="practice-card-icon">
+              <svg style="width:24px;height:24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+            </div>
+            <h3 class="practice-card-title">Banking & Finance</h3>
+            <p class="practice-card-desc">
+              Banking transactions, syndicated lending, securities advisory, debt restructuring, Central Bank Foreign Exchange Act compliance (IIA accounts), and trade finance.
+            </p>
+            <a href="services.html#banking-finance" class="practice-card-link" data-practice-key="banking-finance">
+              <span>View Details</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+          </article>
+
+          <!-- 3. Lawsuits & Disputes -->
+          <article class="practice-card" data-category="disputes-litigation">
+            <div class="practice-card-icon">
+              <svg style="width:24px;height:24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            </div>
+            <h3 class="practice-card-title">Lawsuits & Disputes</h3>
+            <p class="practice-card-desc">
+              Civil and commercial litigation, Commercial High Court debt recovery, contractual breaches, interim enjoining orders, and domestic/international arbitration.
+            </p>
+            <a href="services.html#lawsuits-disputes" class="practice-card-link" data-practice-key="lawsuits-disputes">
+              <span>View Details</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+          </article>
+
+          <!-- 4. Employment & Labor -->
+          <article class="practice-card" data-category="advisory-governance">
+            <div class="practice-card-icon">
+              <svg style="width:24px;height:24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            </div>
+            <h3 class="practice-card-title">Employment & Labor</h3>
+            <p class="practice-card-desc">
+              Employment contracts, workplace policies, TEWA retrenchment, disciplinary inquiries, Labour Tribunal defense, and executive mobility.
+            </p>
+            <a href="services.html#employment-labor" class="practice-card-link" data-practice-key="employment-labor">
+              <span>View Details</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+          </article>
+
+          <!-- 5. Intellectual Property -->
+          <article class="practice-card" data-category="advisory-governance">
+            <div class="practice-card-icon">
+              <svg style="width:24px;height:24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+            </div>
+            <h3 class="practice-card-title">Intellectual Property</h3>
+            <p class="practice-card-desc">
+              Trademarks, patents, industrial designs, copyright protection, IP licensing, and National Intellectual Property Office (NIPO) portfolio management.
+            </p>
+            <a href="services.html#intellectual-property" class="practice-card-link" data-practice-key="intellectual-property">
+              <span>View Details</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+          </article>
+
+          <!-- 6. Notary Services -->
+          <article class="practice-card" data-category="notary-private">
+            <div class="practice-card-icon">
+              <svg style="width:24px;height:24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            </div>
+            <h3 class="practice-card-title">Notary Services</h3>
+            <p class="practice-card-desc">
+              Notarial attestations, deeds of transfer, commercial leases, mortgages, powers of attorney, condominium declarations, and certified land conveyancing.
+            </p>
+            <a href="services.html#notary-services" class="practice-card-link" data-practice-key="notary-services">
+              <span>View Details</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+          </article>
+        </div>
+
+        <!-- Functional View All Practice Areas Button Navigating to services.html -->
+        <div style="text-align: center; margin-top: 48px;">
+          <a href="services.html" class="btn btn-primary btn-lg" id="view-all-practice-btn">
+            View All 15 Practice Areas
+            <svg style="width:18px;height:18px;margin-left:8px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         INTERNATIONAL DESK SPOTLIGHT
+         ======================================================================= -->
+    <section class="international-spotlight-section" id="international-desk-preview">
+      <div class="container desk-grid">
+        <div>
+          <span class="section-eyebrow" style="color:#38bdf8;">Cross-Border Focus</span>
+          <h2 class="desk-headline">Colombo Associates International Desk</h2>
+          <p class="desk-lead">
+            Your Sri Lankan point of contact for cross-border business and legal matters. We coordinate Sri Lankan statutory, corporate, and procedural requirements for foreign principals and international legal advisers.
+          </p>
+
+          <ul class="desk-checklist">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>Who we assist:</strong> Overseas companies, foreign investors, international law firms, professional advisers, and Sri Lankan firms with cross-border operations.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>How we assist:</strong> Initial issue assessment, Sri Lankan legal and corporate coordination, document legalisation support, regulatory mapping, and direct liaison with foreign counsel.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>Typical matters:</strong> Market entry, BOI coordination, shareholder matters, commercial contracts, due diligence, and Sri Lankan dispute coordination.</span>
+            </li>
+          </ul>
+
+          <div class="spotlight-cta-group">
+            <a href="international-desk.html" class="btn btn-primary">
+              <span>Visit International Desk</span>
+              <svg style="width:16px;height:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+            <a href="#contact" class="btn btn-outline-white">International Matter Enquiry</a>
+          </div>
+        </div>
+
+        <div class="steps-container">
+          <div class="steps-title">
+            <svg style="width:24px;height:24px;color:#38bdf8;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <span>The 4-Stage Engagement Journey</span>
+          </div>
+
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <h4>Submit Initial Enquiry</h4>
+              <p>Clients or foreign counsel submit a brief outline of the matter and timeline for preliminary review.</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <h4>Conflict & Scope Checks</h4>
+              <p>Rigorous internal verification to identify conflicts of interest and confirm the matter sits within our scope.</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <h4>Engagement Terms & Document Intake</h4>
+              <p>Issuance of clear engagement terms, KYC verification, fee structures, and secure document transmission.</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <h4>Agreed Work Plan & Updates</h4>
+              <p>Execution against structured milestones with regular status briefings tailored to your reporting cadence.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         WHY COLOMBO ASSOCIATES
+         ======================================================================= -->
+    <section class="why-us-section" id="why-colombo-associates">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-eyebrow">The Colombo Advantage</span>
+          <h2 class="section-title">Why Colombo Associates</h2>
+          <p class="section-subtitle">
+            Defined by clarity, responsiveness, and an unwavering focus on commercially viable legal outcomes.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-icon">
+              <svg style="width:22px;height:22px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+            </div>
+            <h3 class="why-card-title">Commercial Perspective</h3>
+            <p class="why-card-desc">
+              Advice framed around the client’s real-world business objectives, operational risks, and practical next steps.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">
+              <svg style="width:22px;height:22px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+            </div>
+            <h3 class="why-card-title">Integrated Support</h3>
+            <p class="why-card-desc">
+              Legal, secretarial and regulatory services seamlessly coordinated where a matter requires multidimensional expertise.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">
+              <svg style="width:22px;height:22px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            </div>
+            <h3 class="why-card-title">International Outlook</h3>
+            <p class="why-card-desc">
+              Deep understanding of the communication, formatting, and coordination needs of overseas clients and foreign advisers.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">
+              <svg style="width:22px;height:22px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+            </div>
+            <h3 class="why-card-title">Accessible Communication</h3>
+            <p class="why-card-desc">
+              Straightforward explanations free from unnecessary legalese, defined next steps, and disciplined follow-through.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">
+              <svg style="width:22px;height:22px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <h3 class="why-card-title">Relationship-Led Service</h3>
+            <p class="why-card-desc">
+              Investing time into understanding each client’s operational context to foster enduring, trusted institutional partnerships.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Factual Mid-Page Callout Banner (Unverified transaction claims removed) -->
+    <section class="commercial-callout-section">
+      <div class="container">
+        <div class="commercial-callout-grid">
+          <div class="commercial-callout-content">
+            <span class="section-eyebrow" style="color:#38bdf8;">Commercial Focus</span>
+            <h3 class="callout-heading">
+              Commercial Perspective Across Legal & Corporate Realities
+            </h3>
+            <p style="color:rgba(255,255,255,0.82); line-height:1.7; font-size:1rem; margin-bottom:26px;">
+              Colombo Associates coordinates legal, corporate secretarial, and strategic requirements to assist clients in evaluating options, managing risks, and proceeding with practical confidence.
+            </p>
+            <div>
+              <a href="about.html" class="btn btn-secondary">Learn About Our Firm Approach</a>
+            </div>
+          </div>
+          <div>
+            <img src="assets/images/boardroom-meeting.jpg" alt="Colombo Associates Consultation Session">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         INSIGHTS & UPDATES
+         ======================================================================= -->
+    <section class="insights-section" id="insights">
+      <div class="container">
+        <div class="section-header" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:20px;">
+          <div>
+            <span class="section-eyebrow">Knowledge & Analysis</span>
+            <h2 class="section-title">Insights and Updates</h2>
+            <p class="section-subtitle">
+              Timely legal briefings, regulatory explainers, and commentary on Sri Lankan jurisprudence and commercial practice.
+            </p>
+          </div>
+          <a href="insights.html" class="btn btn-secondary">View All Insights</a>
+        </div>
+
+        <div class="insights-grid">
+          <!-- Article 1 -->
+          <article class="insight-card">
+            <div class="insight-body">
+              <div class="insight-meta">
+                <span class="insight-tag">Banking & Finance</span>
+                <span>• Oct 18, 2026</span>
+              </div>
+              <h3 class="insight-title">
+                Navigating Foreign Direct Investment & Inward Remittance Accounts in Sri Lanka
+              </h3>
+              <p class="insight-excerpt">
+                A practical guide for foreign principals setting up Sri Lankan subsidiaries, managing Central Bank IIA capital flows, and securing BOI statutory concessions.
+              </p>
+              <div class="insight-footer">
+                <span class="insight-author">Banking & Cross-Border Group</span>
+                <span style="font-size:0.75rem; color:#64748b;">Legal Explainer</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="insight-card">
+            <div class="insight-body">
+              <div class="insight-meta">
+                <span class="insight-tag">Corporate & Commercial</span>
+                <span>• Oct 10, 2026</span>
+              </div>
+              <h3 class="insight-title">
+                Director Duties, Board Governance, and Statutory ROC Filings Under Act No. 7 of 2007
+              </h3>
+              <p class="insight-excerpt">
+                Essential compliance checklist for resident and non-resident directors regarding solvency declarations, annual returns, and register maintenance.
+              </p>
+              <div class="insight-footer">
+                <span class="insight-author">Corporate Secretarial Group</span>
+                <span style="font-size:0.75rem; color:#64748b;">Statutory Guide</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="insight-card">
+            <div class="insight-body">
+              <div class="insight-meta">
+                <span class="insight-tag">Lawsuits & Disputes</span>
+                <span>• Sep 28, 2026</span>
+              </div>
+              <h3 class="insight-title">
+                Commercial High Court Interim Remedies: Enjoining Orders and Asset Restraints
+              </h3>
+              <p class="insight-excerpt">
+                Understanding the legal standards required to obtain swift interlocutory injunctions in Sri Lankan contractual and debt disputes.
+              </p>
+              <div class="insight-footer">
+                <span class="insight-author">Dispute Resolution Group</span>
+                <span style="font-size:0.75rem; color:#64748b;">Procedural Note</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div style="margin-top:28px; text-align:center;">
+          <p style="font-size:0.8rem; color:#64748b; font-style:italic; margin:0;">
+            Publication Notice: Insights and updates provide general commentary on Sri Lankan jurisprudence and commercial practice for educational purposes only; they do not constitute formal legal advice.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         CLOSING CALL TO ACTION & CLIENT ENQUIRY FORM
+         ======================================================================= -->
+    <section class="closing-cta-section" id="contact">
+      <div class="container cta-grid">
+        <!-- Left Column: Firm Intake & Advisory Scope -->
+        <div class="cta-info">
+          <span class="section-eyebrow">Direct Colombo Intake</span>
+          <h2 class="section-title" style="margin-bottom:16px;">
+            Have a legal or corporate matter to discuss?
+          </h2>
+          <p class="cta-desc">
+            Tell us briefly what you need support with. Our team will review your enquiry for scope and potential conflicts of interest, and advise on the appropriate next step.
+          </p>
+
+          <!-- Luxury Interactive Contact Cards -->
+          <div class="contact-channel-cards">
+            <!-- Location Card -->
+            <div class="contact-card-item">
+              <div class="contact-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div class="contact-card-body">
+                <span class="contact-card-label">Office Location</span>
+                <span class="contact-card-value">Colombo, Sri Lanka <span class="contact-card-sub">(Physical suite to be confirmed)</span></span>
+              </div>
+            </div>
+
+            <!-- Phone Direct Line (Clickable) -->
+            <a href="tel:+94112345678" class="contact-card-item contact-card-link" title="Call Colombo Associates Intake Desk">
+              <div class="contact-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <div class="contact-card-body">
+                <span class="contact-card-label">Telephone Direct Line</span>
+                <span class="contact-card-value contact-link-highlight">+94 11 234 5678</span>
+              </div>
+              <div class="contact-card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </div>
+            </a>
+
+            <!-- Intake Email (Clickable) -->
+            <a href="mailto:enquiries@colomboassociates.lk" class="contact-card-item contact-card-link" title="Email Colombo Associates Intake Desk">
+              <div class="contact-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div class="contact-card-body">
+                <span class="contact-card-label">General Intake Email</span>
+                <span class="contact-card-value contact-link-highlight">enquiries@colomboassociates.lk</span>
+              </div>
+              <div class="contact-card-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </div>
+            </a>
+          </div>
+
+          <!-- Unified Professional Notice Card -->
+          <div class="confidentiality-notice-card" role="note">
+            <div class="notice-badge-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              <strong>Conflict Clearance & Confidentiality Terms</strong>
+            </div>
+            <p>
+              All matters undergo prompt intake clearance before formal legal engagement. Submitting an initial enquiry does not create an attorney-client relationship. Please do not submit confidential, trade secret, or privileged documents through this web form. Original records and sensitive documents may only be transmitted after conflict clearance and formal execution of engagement terms.
+            </p>
+          </div>
+        </div>
+
+        <!-- Enquiry Form Card -->
+        <div class="enquiry-form-card">
+          <h3 class="form-title">Client Enquiry Form</h3>
+          <p class="form-subtitle">Direct routing to our practice leads and intake team.</p>
+
+          <form id="client-enquiry-form" novalidate>
+            <!-- Honeypot Anti-Spam (Hidden from humans) -->
+            <div style="position:absolute; left:-9999px; opacity:0; pointer-events:none;" aria-hidden="true">
+              <label for="enquiry-hp">Security Check (leave empty)</label>
+              <input type="text" id="enquiry-hp" name="_security_honeypot" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="enquiry-name" class="form-label">Full Name <span class="req">*</span></label>
+                <input type="text" id="enquiry-name" class="form-control" placeholder="Your Full Name" required>
+              </div>
+              <div class="form-group">
+                <label for="enquiry-org" class="form-label">Organisation <span style="font-weight:normal; color:#64748b;">(Optional)</span></label>
+                <input type="text" id="enquiry-org" class="form-control" placeholder="Company or institutional name">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="enquiry-email" class="form-label">Business Email <span class="req">*</span></label>
+                <input type="email" id="enquiry-email" class="form-control" placeholder="name@company.com" required>
+              </div>
+              <div class="form-group">
+                <label for="enquiry-phone" class="form-label">Telephone / WhatsApp <span class="req">*</span></label>
+                <input type="tel" id="enquiry-phone" class="form-control" placeholder="+94 / +44 / +1 ..." required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="enquiry-country" class="form-label">Country of Residence / Location <span class="req">*</span></label>
+                <input type="text" id="enquiry-country" class="form-control" placeholder="Sri Lanka, UK, Singapore, Australia, etc." required>
+              </div>
+              <div class="form-group">
+                <label for="enquiry-service" class="form-label">Service Area <span class="req">*</span></label>
+                <select id="enquiry-service" class="form-control" required>
+                  <option value="" disabled selected>Select Practice Category</option>
+                  <option value="Banking & Finance">Banking & Finance</option>
+                  <option value="Civil & Human Rights">Civil & Human Rights</option>
+                  <option value="Consumer Rights">Consumer Rights</option>
+                  <option value="Corporate & Commercial">Corporate & Commercial</option>
+                  <option value="Criminal Defense">Criminal Defense</option>
+                  <option value="Employment & Labor">Employment & Labor</option>
+                  <option value="Energy, Environment & ESG">Energy, Environment & ESG</option>
+                  <option value="Immigration">Immigration</option>
+                  <option value="Insurance">Insurance</option>
+                  <option value="Intellectual Property">Intellectual Property</option>
+                  <option value="Lawsuits & Disputes">Lawsuits & Disputes</option>
+                  <option value="Media, Technology and Telecoms">Media, Technology and Telecoms</option>
+                  <option value="Notary Services">Notary Services</option>
+                  <option value="Private Client">Private Client</option>
+                  <option value="Tax">Tax</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="enquiry-desc" class="form-label">Brief Description of the Matter <span class="req">*</span></label>
+              <textarea id="enquiry-desc" class="form-control" placeholder="Please provide high-level context of your objectives and timeline. Avoid sensitive confidential details at this stage." required></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="enquiry-method" class="form-label">Preferred Contact Method</label>
+                <select id="enquiry-method" class="form-control">
+                  <option value="email">Email</option>
+                  <option value="whatsapp">WhatsApp</option>
+                  <option value="phone">Direct Phone Call</option>
+                  <option value="video">Virtual Video Meeting</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="enquiry-time" class="form-label">Preferred Time Window</label>
+                <select id="enquiry-time" class="form-control">
+                  <option value="sl-morning">Sri Lanka Business Hours (Morning)</option>
+                  <option value="sl-afternoon">Sri Lanka Business Hours (Afternoon)</option>
+                  <option value="uk-europe">UK / Europe Working Hours</option>
+                  <option value="us-est">US Eastern Time Hours</option>
+                  <option value="asia-pacific">Singapore / Asia-Pacific Hours</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Mandatory Consent Checkbox -->
+            <label class="form-checkbox-label">
+              <input type="checkbox" id="enquiry-consent" required>
+              <span>I confirm that I have reviewed the <a href="privacy.html" target="_blank" style="text-decoration:underline; color:var(--color-accent);">Privacy Notice</a> and acknowledge that submitting this inquiry does not create a formal attorney-client relationship until conflict checks and terms of engagement are concluded.</span>
+            </label>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width:100%;" id="submit-enquiry-btn">
+              <span>Submit Enquiry to Colombo Associates</span>
+              <svg style="width:18px;height:18px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+            <div style="font-size:0.78rem; color:#64748b; text-align:center; margin-top:10px;">
+              Inquiries are reviewed for conflict clearance and responded to within 24–48 business hours.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =======================================================================
+         PRACTICE DETAIL MODAL COMPONENT (15 CATEGORIES)
+         ======================================================================= -->
+  <div class="modal-backdrop" id="practice-modal" role="dialog" aria-modal="true" aria-labelledby="modal-practice-title">
+    <div class="modal-dialog">
+      <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Close Practice Details Modal">
+        <svg style="width:24px;height:24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <span class="badge" style="margin-bottom:12px;">Practice Area Detail</span>
+      <h3 id="modal-practice-title" class="modal-dialog-title">Practice Area</h3>
+      
+      <div style="background:#f1f5f9; padding:14px 18px; border-radius:6px; font-size:0.88rem; color:#0f172a; margin-bottom:18px; border-left:3px solid var(--color-accent);">
+        <strong>Practice Scope:</strong> <span id="modal-practice-covers"></span>
+      </div>
+
+      <p id="modal-practice-details" style="font-size:0.92rem; color:#475569; line-height:1.7; margin-bottom:20px;"></p>
+
+      <h4 style="font-size:0.98rem; font-weight:700; color:var(--color-primary); margin-bottom:10px;">Key Matters & Scope:</h4>
+      <ul id="modal-practice-matters" style="list-style-type:disc; padding-left:22px; font-size:0.88rem; color:#334155; line-height:1.7; margin-bottom:26px;">
+      </ul>
+
+      <div style="display:flex; gap:14px; align-items:center;">
+        <a href="#contact" id="modal-enquire-btn" class="btn btn-primary">Enquire Regarding This Category</a>
+        <button type="button" class="btn btn-secondary" onclick="document.getElementById('practice-modal').classList.remove('active'); document.body.style.overflow='';">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <aside class="toast-notice" id="toast-notice" role="alert" aria-live="assertive">
+    <svg style="width:22px;height:22px;color:#34d399;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <div class="toast-message">Your enquiry has been received.</div>
+  </aside>
+
+  <!-- =======================================================================
+       SITE FOOTER (SECTIONS 12 & 13)
+       ======================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <img src="assets/icons/logo-white.svg" alt="Colombo Associates" width="220" height="46">
+        </a>
+        <p>
+          Colombo Associates provides legal, corporate and strategic support to businesses, investors, organisations and individuals navigating matters in Sri Lanka and across borders.
+        </p>
+      </div>
+
+      <!-- Practice Navigation (15 Categories Aligned) -->
+      <div class="footer-col">
+        <h4>Practice Areas</h4>
+        <ul class="footer-links">
+          <li><a href="services.html#banking-finance">Banking & Finance</a></li>
+          <li><a href="services.html#corporate-commercial">Corporate & Commercial</a></li>
+          <li><a href="services.html#lawsuits-disputes">Lawsuits & Disputes</a></li>
+          <li><a href="services.html#employment-labor">Employment & Labor</a></li>
+          <li><a href="services.html#intellectual-property">Intellectual Property</a></li>
+          <li><a href="services.html#notary-services">Notary Services</a></li>
+          <li><a href="services.html#tax">Tax</a></li>
+          <li><a href="services.html">All 15 Categories &rarr;</a></li>
+        </ul>
+      </div>
+
+      <!-- Firm Links -->
+      <div class="footer-col">
+        <h4>The Practice</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About Colombo Associates</a></li>
+          <li><a href="international-desk.html">International Desk</a></li>
+          <li><a href="people.html">People</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="privacy.html">Privacy Notice</a></li>
+          <li><a href="terms.html">Legal Disclaimer</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Details -->
+      <div class="footer-col">
+        <h4>Colombo Office</h4>
+        <div class="footer-contact-info">
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Colombo, Sri Lanka (Office details subject to confirmation)</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <a href="tel:+94112345678" style="color:inherit;">+94 11 234 5678</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <a href="mailto:enquiries@colomboassociates.lk" style="color:inherit;">enquiries@colomboassociates.lk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mandatory Regulatory Safeguards Notice -->
+    <div class="container footer-disclaimer-box">
+      <strong>Regulatory & Publication Notice:</strong>
+      Colombo Associates is an independent legal and corporate services provider established in Sri Lanka. Information on this website is provided for general informational purposes only and does not constitute formal legal advice or representation. Legal advisory services, notarial attestations, and company secretarial administration are clearly distinguished and provided in strict compliance with the laws of the Democratic Socialist Republic of Sri Lanka and professional regulations governing admitted Attorneys-at-Law and Chartered Secretaries.
+    </div>
+
+    <div class="container footer-bottom">
+      <div>
+        © 2026 Colombo Associates. All rights reserved.
+      </div>
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Notice</a>
+        <a href="terms.html">Terms & Legal Disclaimer</a>
+        <a href="contact.html">Direct Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/practice-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
