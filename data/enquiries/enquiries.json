@@ -134,5 +134,22 @@
     "submissionTimestamp": "2026-10-31T14:41:47.712Z",
     "enquiryStatus": "Pending Conflict Review",
     "assignedIntakeOfficer": "Conflict Clearance Committee"
+  },
+  {
+    "enquiryReferenceId": "CA-ENQ-2026-4322",
+    "fullName": "Mohamed Dilsath",
+    "organisation": "Dilsath Holdings (Pvt) Ltd",
+    "businessEmail": "dilsath.corporate@gmail.com",
+    "telephone": "+94 77 123 4567",
+    "country": "Sri Lanka",
+    "serviceArea": "Banking, Finance & Capital Markets",
+    "matterDescription": "Inquiry regarding credit facility documentation and collateral security review.",
+    "preferredContactMethod": "Email",
+    "preferredTimeWindow": "Sri Lanka Business Hours (Morning)",
+    "privacyConsent": true,
+    "consentTimestamp": "2026-10-31T15:00:12.026Z",
+    "submissionTimestamp": "2026-10-31T15:00:12.027Z",
+    "enquiryStatus": "Pending Conflict Review",
+    "assignedIntakeOfficer": "Conflict Clearance Committee"
   }
 ]

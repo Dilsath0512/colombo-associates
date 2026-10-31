@@ -370,9 +370,8 @@ const server = http.createServer((req, res) => {
 
       <!-- Brand Header with Official Logo -->
       <tr>
-        <td style="background-color: #07162c; padding: 26px 24px 20px; text-align: center;">
-          <img src="https://raw.githubusercontent.com/Dilsath0512/colombo-associates/main/assets/icons/logo-white.png" alt="Colombo Associates" style="height: 40px; width: auto; max-width: 240px; display: block; margin: 0 auto; border: 0;" />
-          <div style="font-size: 13px; color: #94a3b8; font-weight: 500; margin-top: 10px; letter-spacing: 0.5px;">New Website Client Enquiry</div>
+        <td style="background-color: #07162c; padding: 28px 24px 24px; text-align: center;">
+          <img src="https://raw.githubusercontent.com/Dilsath0512/colombo-associates/main/assets/icons/logo-white.png" alt="Colombo Associates" style="height: 38px; width: auto; max-width: 240px; display: block; margin: 0 auto; border: 0;" />
         </td>
       </tr>
 
@@ -724,9 +723,8 @@ const server = http.createServer((req, res) => {
 
       <!-- Brand Header with Official Logo -->
       <tr>
-        <td style="background-color: #07162c; padding: 26px 24px 20px; text-align: center;">
-          <img src="https://raw.githubusercontent.com/Dilsath0512/colombo-associates/main/assets/icons/logo-white.png" alt="Colombo Associates" style="height: 40px; width: auto; max-width: 240px; display: block; margin: 0 auto; border: 0;" />
-          <div style="font-size: 13px; color: #94a3b8; font-weight: 500; margin-top: 10px; letter-spacing: 0.5px;">New Candidate Job Application</div>
+        <td style="background-color: #07162c; padding: 28px 24px 24px; text-align: center;">
+          <img src="https://raw.githubusercontent.com/Dilsath0512/colombo-associates/main/assets/icons/logo-white.png" alt="Colombo Associates" style="height: 38px; width: auto; max-width: 240px; display: block; margin: 0 auto; border: 0;" />
         </td>
       </tr>
 
