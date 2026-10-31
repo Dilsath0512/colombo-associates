@@ -100,5 +100,22 @@
     "submissionTimestamp": "2026-10-31T13:42:00.679Z",
     "enquiryStatus": "Pending Conflict Review",
     "assignedIntakeOfficer": "Conflict Clearance Committee"
+  },
+  {
+    "enquiryReferenceId": "CA-ENQ-2026-5215",
+    "fullName": "Mohamed Dilsath",
+    "organisation": "Colombo Client Enterprise",
+    "businessEmail": "dilsath@gmail.com",
+    "telephone": "+94 76 870 0005",
+    "country": "Sri Lanka",
+    "serviceArea": "Energy, Environment & ESG",
+    "matterDescription": "Comprehensive legal advisory request regarding renewable energy project licensing and environmental clearance regulations.",
+    "preferredContactMethod": "Email",
+    "preferredTimeWindow": "Sri Lanka Business Hours (Morning)",
+    "privacyConsent": true,
+    "consentTimestamp": "2026-10-31T14:08:26.319Z",
+    "submissionTimestamp": "2026-10-31T14:08:26.329Z",
+    "enquiryStatus": "Pending Conflict Review",
+    "assignedIntakeOfficer": "Conflict Clearance Committee"
   }
 ]

@@ -340,34 +340,188 @@ const server = http.createServer((req, res) => {
 
         // Dispatch Email Notification to Firm Intake Email (enquiries@colomboassociates.lk)
         const targetFirmEmail = process.env.FIRM_INTAKE_EMAIL || 'enquiries@colomboassociates.lk';
+        const submissionDateFormatted = new Date().toLocaleString('en-GB', {
+          timeZone: 'Asia/Colombo',
+          day: 'numeric',
+          month: 'short',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: true
+        }) + ' (Sri Lanka Time)';
+
         const intakeEmailHtml = `
-          <div style="font-family: Arial, sans-serif; max-width: 620px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;">
-            <div style="background: #07162c; padding: 22px; text-align: center;">
-              <h2 style="color: #c5a059; margin: 0; font-size: 20px; letter-spacing: 1.5px; font-family: serif;">COLOMBO ASSOCIATES</h2>
-              <p style="color: #e2e8f0; margin: 6px 0 0 0; font-size: 13px;">New Client Matter Enquiry</p>
-            </div>
-            <div style="padding: 24px; background: #ffffff;">
-              <p style="font-size: 14px; color: #334155; margin-top: 0;">A prospective client matter enquiry has been submitted through the firm website:</p>
-              <table style="width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 18px 0;">
-                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b; width: 150px;">Enquiry Reference:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; font-weight: bold; color: #07162c;">${enqId}</td></tr>
-                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Client Name:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; font-weight: bold; color: #0f172a;">${rawName}</td></tr>
-                ${data.organisation ? `<tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Organisation:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9;">${sanitizeString(data.organisation)}</td></tr>` : ''}
-                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Business Email:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9;"><a href="mailto:${rawEmail}" style="color: #0284c7; font-weight: bold;">${rawEmail}</a></td></tr>
-                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Telephone:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9;">${rawPhone}</td></tr>
-                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Country:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9;">${rawCountry}</td></tr>
-                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Practice Area:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; font-weight: bold; color: #0369a1;">${serviceArea}</td></tr>
-                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Preferred Method:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9;">${sanitizeString(data.preferredMethod || 'Email')}</td></tr>
-                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Preferred Time:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9;">${sanitizeString(data.preferredTime || 'Morning')}</td></tr>
-              </table>
-              <div style="background: #f8fafc; border-left: 4px solid #c5a059; padding: 14px; margin-top: 10px; border-radius: 0 4px 4px 0;">
-                <strong style="color: #07162c; font-size: 13px;">Matter Description:</strong>
-                <p style="margin: 8px 0 0 0; color: #334155; line-height: 1.6; white-space: pre-wrap; font-size: 13.5px;">${rawDesc}</p>
-              </div>
-              <p style="font-size: 12px; color: #94a3b8; margin-top: 24px; line-height: 1.5;">
-                *Notice: This matter is pending preliminary conflict clearance. You can click <strong>Reply</strong> in your email client to directly email ${rawName} (${rawEmail}).
-              </p>
-            </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Matter Enquiry — ${enqId}</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #0b1727; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; -webkit-font-smoothing: antialiased; color: #1e293b;">
+  <div style="background-color: #0b1727; padding: 35px 12px;">
+    <!-- Main Card Container -->
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 640px; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.35); border: 1px solid #1e293b;">
+      
+      <!-- Top Gold Metallic Gradient Trim -->
+      <tr>
+        <td style="height: 5px; background: linear-gradient(90deg, #c5a059 0%, #ecdcb0 50%, #c5a059 100%); font-size: 0; line-height: 0;">&nbsp;</td>
+      </tr>
+
+      <!-- Brand Header -->
+      <tr>
+        <td style="background-color: #07162c; padding: 32px 30px 26px; text-align: center;">
+          <table align="center" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td style="text-align: center;">
+                <div style="font-family: 'Georgia', 'Times New Roman', serif; font-size: 24px; font-weight: 700; color: #c5a059; letter-spacing: 3px; text-transform: uppercase;">
+                  COLOMBO ASSOCIATES
+                </div>
+                <div style="font-size: 11px; font-weight: 600; color: #94a3b8; letter-spacing: 1.8px; text-transform: uppercase; margin-top: 6px;">
+                  Attorneys-at-Law &bull; Corporate Counselors &bull; Colombo, Sri Lanka
+                </div>
+                <div style="margin-top: 18px;">
+                  <span style="display: inline-block; background: rgba(197, 160, 89, 0.15); border: 1px solid #c5a059; color: #f59e0b; padding: 5px 16px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">
+                    Client Matter Intake Dossier
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <!-- Subheader Reference Strip -->
+      <tr>
+        <td style="background-color: #0d2242; padding: 14px 28px; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid #e2e8f0;">
+          <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+              <td style="font-size: 13px; color: #cbd5e1;">
+                Ref: <strong style="font-family: monospace; font-size: 14px; color: #38bdf8; letter-spacing: 0.5px;">${enqId}</strong>
+              </td>
+              <td style="text-align: right; font-size: 12px; color: #94a3b8;">
+                ${submissionDateFormatted}
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <!-- Content Area -->
+      <tr>
+        <td style="padding: 32px 28px;">
+
+          <!-- Section 1: Client Information -->
+          <div style="font-size: 11px; font-weight: 700; color: #0284c7; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 12px;">
+            1. Prospective Client Information
           </div>
+
+          <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse; margin-bottom: 24px; background: #f8fafc; border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0;">
+            <tr>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0; width: 38%; color: #64748b; font-size: 13px; font-weight: 500;">Client Full Name:</td>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0; color: #0f172a; font-size: 14px; font-weight: 700;">${rawName}</td>
+            </tr>
+            ${data.organisation ? `
+            <tr>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0; color: #64748b; font-size: 13px; font-weight: 500;">Organisation:</td>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0; color: #1e293b; font-size: 13.5px; font-weight: 600;">${sanitizeString(data.organisation)}</td>
+            </tr>` : ''}
+            <tr>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0; color: #64748b; font-size: 13px; font-weight: 500;">Business Email:</td>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0; color: #0284c7; font-size: 14px; font-weight: 600;">
+                <a href="mailto:${rawEmail}" style="color: #0284c7; text-decoration: underline;">${rawEmail}</a>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0; color: #64748b; font-size: 13px; font-weight: 500;">Telephone / WhatsApp:</td>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0; color: #0f172a; font-size: 14px; font-weight: 600;">
+                <a href="tel:${rawPhone}" style="color: #0f172a; text-decoration: none;">${rawPhone}</a>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 12px 16px; color: #64748b; font-size: 13px; font-weight: 500;">Country / Jurisdiction:</td>
+              <td style="padding: 12px 16px; color: #1e293b; font-size: 13.5px; font-weight: 600;">${rawCountry}</td>
+            </tr>
+          </table>
+
+          <!-- Section 2: Matter Intake Details -->
+          <div style="font-size: 11px; font-weight: 700; color: #0284c7; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 12px;">
+            2. Practice Area &amp; Consultation Window
+          </div>
+
+          <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse; margin-bottom: 24px; background: #f8fafc; border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0;">
+            <tr>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0; width: 38%; color: #64748b; font-size: 13px; font-weight: 500;">Practice Category:</td>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0;">
+                <span style="display: inline-block; background: #e0f2fe; color: #0369a1; padding: 4px 12px; border-radius: 6px; font-weight: 700; font-size: 12.5px; border: 1px solid #bae6fd;">
+                  ${serviceArea}
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0; color: #64748b; font-size: 13px; font-weight: 500;">Preferred Method:</td>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0; color: #1e293b; font-size: 13.5px; font-weight: 600;">${sanitizeString(data.preferredMethod || 'Email')}</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px 16px; color: #64748b; font-size: 13px; font-weight: 500;">Preferred Consultation Window:</td>
+              <td style="padding: 12px 16px; color: #1e293b; font-size: 13.5px; font-weight: 600;">${sanitizeString(data.preferredTime || 'Morning (Sri Lanka Business Hours)')}</td>
+            </tr>
+          </table>
+
+          <!-- Section 3: Matter Description Brief -->
+          <div style="font-size: 11px; font-weight: 700; color: #0284c7; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 12px;">
+            3. Matter Description &amp; Conflict Scope
+          </div>
+
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #c5a059; border-radius: 6px; padding: 18px 20px; margin-bottom: 28px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+            <p style="margin: 0; color: #1e293b; font-size: 14.5px; line-height: 1.7; white-space: pre-wrap; font-family: inherit;">${rawDesc}</p>
+          </div>
+
+          <!-- Quick Action Buttons for Lawyers -->
+          <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 10px;">
+            <tr>
+              <td align="center" style="padding: 10px 0;">
+                <table border="0" cellpadding="0" cellspacing="0" style="margin: 0 auto;">
+                  <tr>
+                    <td align="center" style="border-radius: 6px; background-color: #07162c;">
+                      <a href="mailto:${rawEmail}?subject=Colombo%20Associates%20Matter%20Enquiry%20Receipt%20%5BRef%3A%20${enqId}%5D" style="display: inline-block; padding: 13px 26px; font-family: inherit; font-size: 13.5px; color: #ffffff; font-weight: 700; text-decoration: none; border-radius: 6px; border: 1px solid #c5a059; letter-spacing: 0.3px;">
+                        &larr; Reply Directly to Client
+                      </a>
+                    </td>
+                    <td width="14">&nbsp;</td>
+                    <td align="center" style="border-radius: 6px; background-color: #f1f5f9; border: 1px solid #cbd5e1;">
+                      <a href="tel:${rawPhone}" style="display: inline-block; padding: 13px 22px; font-family: inherit; font-size: 13.5px; color: #07162c; font-weight: 600; text-decoration: none; border-radius: 6px;">
+                        &#9742; Call Client
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+        </td>
+      </tr>
+
+      <!-- Disclaimer & Footer -->
+      <tr>
+        <td style="background-color: #f8fafc; border-top: 1px solid #e2e8f0; padding: 22px 28px; text-align: center;">
+          <p style="font-size: 11px; color: #64748b; line-height: 1.6; margin: 0 0 10px 0;">
+            <strong>Privileged &amp; Confidential:</strong> This electronic memorandum contains prospective client information intended exclusively for the Colombo Associates Intake &amp; Conflict Clearance Committee. Preliminary web submissions do not create an attorney-client relationship until formal conflict clearance and engagement terms are executed.
+          </p>
+          <div style="font-size: 11.5px; font-weight: 600; color: #07162c; margin-top: 10px;">
+            Colombo Associates &bull; Colombo, Sri Lanka &bull; +94 11 234 5678
+          </div>
+          <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">
+            <a href="https://colomboassociates.lk" style="color: #c5a059; text-decoration: underline;">colomboassociates.lk</a>
+          </div>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+</body>
+</html>
         `;
 
         sendResendEmail({
@@ -592,32 +746,176 @@ const server = http.createServer((req, res) => {
 
         // Dispatch Email Notification to Firm Careers Email (careers@colomboassociates.lk)
         const targetCareersEmail = process.env.FIRM_CAREERS_EMAIL || 'careers@colomboassociates.lk';
+        const appDateFormatted = new Date().toLocaleString('en-GB', {
+          timeZone: 'Asia/Colombo',
+          day: 'numeric',
+          month: 'short',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: true
+        }) + ' (Sri Lanka Time)';
+
         const careersEmailHtml = `
-          <div style="font-family: Arial, sans-serif; max-width: 620px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;">
-            <div style="background: #07162c; padding: 22px; text-align: center;">
-              <h2 style="color: #c5a059; margin: 0; font-size: 20px; letter-spacing: 1.5px; font-family: serif;">COLOMBO ASSOCIATES</h2>
-              <p style="color: #e2e8f0; margin: 6px 0 0 0; font-size: 13px;">Recruitment Portal — Candidate Application</p>
-            </div>
-            <div style="padding: 24px; background: #ffffff;">
-              <p style="font-size: 14px; color: #334155; margin-top: 0;">A new candidate application has been submitted through the careers portal:</p>
-              <table style="width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 18px 0;">
-                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b; width: 150px;">Application ID:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; font-weight: bold; color: #07162c;">${appId}</td></tr>
-                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Target Position:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; font-weight: bold; color: #0369a1;">${position}</td></tr>
-                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Candidate Name:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; font-weight: bold; color: #0f172a;">${name}</td></tr>
-                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Email Address:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9;"><a href="mailto:${email}" style="color: #0284c7; font-weight: bold;">${email}</a></td></tr>
-                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">Telephone:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9;">${phone}</td></tr>
-                ${linkedin ? `<tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">LinkedIn Profile:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9;"><a href="${linkedin}" target="_blank">${linkedin}</a></td></tr>` : ''}
-                <tr><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: #64748b;">CV Document:</td><td style="padding: 9px 8px; border-bottom: 1px solid #f1f5f9; font-weight: bold;">${path.basename(data.cvFile.name)} (Stored in Vault)</td></tr>
-              </table>
-              <div style="background: #f8fafc; border-left: 4px solid #c5a059; padding: 14px; margin-top: 10px; border-radius: 0 4px 4px 0;">
-                <strong style="color: #07162c; font-size: 13px;">Experience & Qualifications Summary:</strong>
-                <p style="margin: 8px 0 0 0; color: #334155; line-height: 1.6; white-space: pre-wrap; font-size: 13.5px;">${experience}</p>
-              </div>
-              <p style="font-size: 12px; color: #94a3b8; margin-top: 24px; line-height: 1.5;">
-                *Notice: Candidate CV and Cover Letter are securely archived in the firm's data vault and accessible via the Admin Portal.
-              </p>
-            </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Candidate Application — ${appId}</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #0b1727; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; -webkit-font-smoothing: antialiased; color: #1e293b;">
+  <div style="background-color: #0b1727; padding: 35px 12px;">
+    <!-- Main Card Container -->
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 640px; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.35); border: 1px solid #1e293b;">
+      
+      <!-- Top Gold Metallic Gradient Trim -->
+      <tr>
+        <td style="height: 5px; background: linear-gradient(90deg, #c5a059 0%, #ecdcb0 50%, #c5a059 100%); font-size: 0; line-height: 0;">&nbsp;</td>
+      </tr>
+
+      <!-- Brand Header -->
+      <tr>
+        <td style="background-color: #07162c; padding: 32px 30px 26px; text-align: center;">
+          <table align="center" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td style="text-align: center;">
+                <div style="font-family: 'Georgia', 'Times New Roman', serif; font-size: 24px; font-weight: 700; color: #c5a059; letter-spacing: 3px; text-transform: uppercase;">
+                  COLOMBO ASSOCIATES
+                </div>
+                <div style="font-size: 11px; font-weight: 600; color: #94a3b8; letter-spacing: 1.8px; text-transform: uppercase; margin-top: 6px;">
+                  Talent Acquisition &bull; Recruitment Committee &bull; Colombo, Sri Lanka
+                </div>
+                <div style="margin-top: 18px;">
+                  <span style="display: inline-block; background: rgba(197, 160, 89, 0.15); border: 1px solid #c5a059; color: #f59e0b; padding: 5px 16px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">
+                    Candidate Application Dossier
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <!-- Subheader Reference Strip -->
+      <tr>
+        <td style="background-color: #0d2242; padding: 14px 28px; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid #e2e8f0;">
+          <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+              <td style="font-size: 13px; color: #cbd5e1;">
+                App ID: <strong style="font-family: monospace; font-size: 14px; color: #38bdf8; letter-spacing: 0.5px;">${appId}</strong>
+              </td>
+              <td style="text-align: right; font-size: 12px; color: #94a3b8;">
+                ${appDateFormatted}
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <!-- Content Area -->
+      <tr>
+        <td style="padding: 32px 28px;">
+
+          <!-- Section 1: Candidate Overview -->
+          <div style="font-size: 11px; font-weight: 700; color: #0284c7; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 12px;">
+            1. Candidate Profile &amp; Role Target
           </div>
+
+          <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse; margin-bottom: 24px; background: #f8fafc; border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0;">
+            <tr>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0; width: 38%; color: #64748b; font-size: 13px; font-weight: 500;">Target Position:</td>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0;">
+                <span style="display: inline-block; background: #e0f2fe; color: #0369a1; padding: 4px 12px; border-radius: 6px; font-weight: 700; font-size: 13px; border: 1px solid #bae6fd;">
+                  ${position}
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0; color: #64748b; font-size: 13px; font-weight: 500;">Candidate Name:</td>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0; color: #0f172a; font-size: 14px; font-weight: 700;">${name}</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0; color: #64748b; font-size: 13px; font-weight: 500;">Email Address:</td>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0; color: #0284c7; font-size: 14px; font-weight: 600;">
+                <a href="mailto:${email}" style="color: #0284c7; text-decoration: underline;">${email}</a>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0; color: #64748b; font-size: 13px; font-weight: 500;">Telephone / WhatsApp:</td>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0; color: #0f172a; font-size: 14px; font-weight: 600;">
+                <a href="tel:${phone}" style="color: #0f172a; text-decoration: none;">${phone}</a>
+              </td>
+            </tr>
+            ${linkedin ? `
+            <tr>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0; color: #64748b; font-size: 13px; font-weight: 500;">LinkedIn Profile:</td>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0; color: #0284c7; font-size: 13.5px; font-weight: 600;">
+                <a href="${linkedin}" target="_blank" style="color: #0284c7; text-decoration: underline;">${linkedin}</a>
+              </td>
+            </tr>` : ''}
+            <tr>
+              <td style="padding: 12px 16px; color: #64748b; font-size: 13px; font-weight: 500;">CV Attachment:</td>
+              <td style="padding: 12px 16px; color: #0f172a; font-size: 13.5px; font-weight: 700;">
+                &#128196; ${path.basename(data.cvFile.name)} <span style="font-size: 11px; color: #16a34a; font-weight: 600;">(Verified &amp; Stored in Firm Vault)</span>
+              </td>
+            </tr>
+          </table>
+
+          <!-- Section 2: Experience & Qualifications -->
+          <div style="font-size: 11px; font-weight: 700; color: #0284c7; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 12px;">
+            2. Experience &amp; Qualifications Summary
+          </div>
+
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #c5a059; border-radius: 6px; padding: 18px 20px; margin-bottom: 28px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+            <p style="margin: 0; color: #1e293b; font-size: 14.5px; line-height: 1.7; white-space: pre-wrap; font-family: inherit;">${experience}</p>
+          </div>
+
+          <!-- Quick Action Buttons for Recruitment Team -->
+          <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 10px;">
+            <tr>
+              <td align="center" style="padding: 10px 0;">
+                <table border="0" cellpadding="0" cellspacing="0" style="margin: 0 auto;">
+                  <tr>
+                    <td align="center" style="border-radius: 6px; background-color: #07162c;">
+                      <a href="mailto:${email}?subject=Colombo%20Associates%20Application%20%5BRef%3A%20${appId}%5D" style="display: inline-block; padding: 13px 26px; font-family: inherit; font-size: 13.5px; color: #ffffff; font-weight: 700; text-decoration: none; border-radius: 6px; border: 1px solid #c5a059; letter-spacing: 0.3px;">
+                        &larr; Contact Candidate
+                      </a>
+                    </td>
+                    <td width="14">&nbsp;</td>
+                    <td align="center" style="border-radius: 6px; background-color: #f1f5f9; border: 1px solid #cbd5e1;">
+                      <a href="tel:${phone}" style="display: inline-block; padding: 13px 22px; font-family: inherit; font-size: 13.5px; color: #07162c; font-weight: 600; text-decoration: none; border-radius: 6px;">
+                        &#9742; Call Candidate
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+        </td>
+      </tr>
+
+      <!-- Disclaimer & Footer -->
+      <tr>
+        <td style="background-color: #f8fafc; border-top: 1px solid #e2e8f0; padding: 22px 28px; text-align: center;">
+          <p style="font-size: 11px; color: #64748b; line-height: 1.6; margin: 0 0 10px 0;">
+            <strong>Confidential Recruitment Record:</strong> This application dossier is strictly intended for the Colombo Associates Recruitment Committee. All documents are encrypted and archived under firm compliance protocols.
+          </p>
+          <div style="font-size: 11.5px; font-weight: 600; color: #07162c; margin-top: 10px;">
+            Colombo Associates &bull; Colombo, Sri Lanka &bull; +94 11 234 5678
+          </div>
+          <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">
+            <a href="https://colomboassociates.lk/careers.html" style="color: #c5a059; text-decoration: underline;">colomboassociates.lk/careers</a>
+          </div>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+</body>
+</html>
         `;
 
         sendResendEmail({
