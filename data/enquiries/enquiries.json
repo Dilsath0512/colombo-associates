@@ -168,5 +168,22 @@
     "submissionTimestamp": "2026-11-01T11:26:38.699Z",
     "enquiryStatus": "Pending Conflict Review",
     "assignedIntakeOfficer": "Conflict Clearance Committee"
+  },
+  {
+    "enquiryReferenceId": "CA-ENQ-2026-6476",
+    "fullName": "Tariq Mansoor",
+    "organisation": "Crescent Maritime &amp; Logistics",
+    "businessEmail": "tariq.mansoor@crescentmaritime.com",
+    "telephone": "+94 77 987 6543",
+    "country": "Sri Lanka",
+    "serviceArea": "Admiralty & Maritime Law",
+    "matterDescription": "Advisory on vessel charterparty agreements and Colombo port cargo claims clearance.",
+    "preferredContactMethod": "Email",
+    "preferredTimeWindow": "Sri Lanka Business Hours (Morning)",
+    "privacyConsent": true,
+    "consentTimestamp": "2026-11-01T12:21:46.777Z",
+    "submissionTimestamp": "2026-11-01T12:21:46.778Z",
+    "enquiryStatus": "Pending Conflict Review",
+    "assignedIntakeOfficer": "Conflict Clearance Committee"
   }
 ]
