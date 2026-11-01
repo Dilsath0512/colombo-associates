@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Colombo Associates — Project Handover & Technical Delivery Report</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 12mm 14mm 12mm 14mm;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #1e293b;
+      background: #ffffff;
+      line-height: 1.45;
+      font-size: 9.5pt;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    .page {
+      page-break-after: always;
+      position: relative;
+      padding-bottom: 24px;
+    }
+    .page:last-child {
+      page-break-after: avoid;
+    }
+    
+    /* Header & Footer in Pages */
+    .doc-page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 8px;
+      margin-bottom: 14px;
+      border-bottom: 2px solid #081a44;
+    }
+    .doc-page-header .brand-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12pt;
+      color: #081a44;
+      letter-spacing: 0.5px;
+    }
+    .doc-page-header .doc-meta-badge {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: #c5a059;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .doc-page-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 8px;
+      margin-top: 14px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 7.5pt;
+      color: #64748b;
+    }
+
+    /* COVER PAGE */
+    .cover-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 32px 32px 24px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .cover-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 7px;
+      background: linear-gradient(90deg, #c5a059 0%, #d4af37 50%, #081a44 100%);
+    }
+    .cover-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+    }
+    .cover-badge-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 8pt;
+      letter-spacing: 0.5px;
+    }
+    .cover-hero {
+      margin: 28px 0 16px;
+    }
+    .cover-eyebrow {
+      font-family: 'Outfit', sans-serif;
+      font-size: 10pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #c5a059;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .cover-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 24pt;
+      font-weight: 900;
+      line-height: 1.15;
+      color: #081a44;
+      margin-bottom: 12px;
+    }
+    .cover-subtitle {
+      font-size: 11pt;
+      color: #475569;
+      line-height: 1.55;
+      max-width: 650px;
+      margin-bottom: 20px;
+    }
+    .cover-pill-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+    .cover-pill-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 12px 14px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(8, 26, 68, 0.03);
+    }
+    .cover-pill-label {
+      font-size: 7pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #94a3b8;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+    .cover-pill-val {
+      font-size: 9.5pt;
+      font-weight: 800;
+      color: #081a44;
+    }
+    .cover-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 16px;
+    }
+    .meta-col h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 9pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #081a44;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .meta-row {
+      display: flex;
+      margin-bottom: 4px;
+      font-size: 8pt;
+    }
+    .meta-label {
+      width: 115px;
+      color: #64748b;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .meta-value {
+      color: #0f172a;
+      font-weight: 700;
+      word-break: break-all;
+    }
+
+    /* Headings */
+    h2.section-heading {
+      font-family: 'Outfit', sans-serif;
+      font-size: 15pt;
+      font-weight: 800;
+      color: #081a44;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h2.section-heading .num-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      background: #081a44;
+      color: #ffffff;
+      border-radius: 6px;
+      font-size: 10pt;
+      font-weight: 800;
+    }
+    p.section-intro {
+      font-size: 9.5pt;
+      color: #475569;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    /* Tables */
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 12px;
+      font-size: 7.8pt;
+    }
+    table.data-table th {
+      background: #081a44;
+      color: #ffffff;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      text-align: left;
+      padding: 6px 8px;
+      letter-spacing: 0.3px;
+    }
+    table.data-table td {
+      padding: 4.5px 8px;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+      line-height: 1.35;
+    }
+    table.data-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+    .status-check {
+      color: #059669;
+      font-weight: 800;
+    }
+
+    /* Cards */
+    .card-box {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 1px 4px rgba(8, 26, 68, 0.03);
+    }
+    .card-box-accent {
+      border-left: 4px solid #c5a059;
+      background: #fffdfa;
+    }
+    .card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 10.5pt;
+      font-weight: 800;
+      color: #081a44;
+      margin-bottom: 5px;
+    }
+
+    /* Two Column Layout */
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .three-col-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    /* Key-Value Block */
+    .kv-item {
+      margin-bottom: 8px;
+      font-size: 8.5pt;
+      line-height: 1.45;
+    }
+    .kv-label {
+      font-weight: 700;
+      color: #081a44;
+      display: block;
+    }
+    .kv-val {
+      color: #475569;
+    }
+
+    /* Developer Card */
+    .dev-profile-container {
+      background: linear-gradient(135deg, #081a44 0%, #0d2242 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 18px rgba(8, 26, 68, 0.15);
+    }
+    .dev-profile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 12px;
+    }
+    .dev-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16pt;
+      font-weight: 900;
+      color: #ffffff;
+    }
+    .dev-title {
+      font-size: 9.5pt;
+      color: #c5a059;
+      font-weight: 700;
+    }
+    .dev-contact-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .dev-pill {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 8pt;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    /* Signature Box */
+    .sign-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .sign-box {
+      border: 1px dashed #cbd5e1;
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .sign-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 9pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #081a44;
+      margin-bottom: 36px;
+    }
+    .sign-line {
+      border-top: 1px solid #94a3b8;
+      padding-top: 6px;
+      font-size: 8pt;
+      color: #64748b;
+    }
+    .sign-name {
+      font-weight: 800;
+      color: #081a44;
+      font-size: 9.5pt;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================================
+       PAGE 1: COVER PAGE
+       ========================================================================= -->
+  <div class="page">
+    <div class="cover-container">
+      <div class="cover-header">
+        <div>
+          <h1 style="font-family:'Outfit',sans-serif; font-size:18pt; font-weight:900; color:#081a44; letter-spacing:0.5px;">COLOMBO ASSOCIATES</h1>
+          <div style="font-size:8.5pt; color:#64748b; font-weight:600; letter-spacing:1px; text-transform:uppercase;">Legal &amp; Corporate Services • Sri Lanka</div>
+        </div>
+        <div class="cover-badge-live">
+          <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#10b981;"></span>
+          <span>100% LIVE &amp; VERIFIED</span>
+        </div>
+      </div>
+
+      <div class="cover-hero">
+        <span class="cover-eyebrow">Official Delivery &amp; Handover Document</span>
+        <h2 class="cover-title">Project Handover &amp; Digital Infrastructure Report</h2>
+        <p class="cover-subtitle">
+          Comprehensive technical delivery, architecture specifications, team integration audit, and administrative handover documentation for the Colombo Associates official corporate web platform.
+        </p>
+
+        <div class="cover-pill-grid">
+          <div class="cover-pill-card">
+            <div class="cover-pill-label">Production Domain</div>
+            <div class="cover-pill-val">colomboassociates.com</div>
+          </div>
+          <div class="cover-pill-card">
+            <div class="cover-pill-label">Client Leadership</div>
+            <div class="cover-pill-val">Ajra Azhar (Managing Partner)</div>
+          </div>
+          <div class="cover-pill-card">
+            <div class="cover-pill-label">Release Version</div>
+            <div class="cover-pill-val">v1.0 Production Release</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cover-meta-grid">
+        <div class="meta-col">
+          <h4>Client Organisation</h4>
+          <div class="meta-row">
+            <span class="meta-label">Practice:</span>
+            <span class="meta-value">Colombo Associates Legal</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Managing Partner:</span>
+            <span class="meta-value">Ajra Azhar (Attorney-at-Law)</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Senior Counsel:</span>
+            <span class="meta-value">Shaheeda Barrie (Chambers Head)</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Head of Corporate:</span>
+            <span class="meta-value">Rahna Rifky</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Primary Intake:</span>
+            <span class="meta-value">Ajra.a@colomboassociates.com</span>
+          </div>
+        </div>
+
+        <div class="meta-col">
+          <h4>Lead Technical Consultant</h4>
+          <div class="meta-row">
+            <span class="meta-label">Full Name:</span>
+            <span class="meta-value">Mohamed Dilsath</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Role:</span>
+            <span class="meta-value">Full-Stack Web Developer</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Email:</span>
+            <span class="meta-value">mohmdlsth1129@gmail.com</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">GitHub Portfolio:</span>
+            <span class="meta-value">github.com/Dilsath0512</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Handover Date:</span>
+            <span class="meta-value">November 01, 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size:7.5pt; color:#64748b; text-align:center; padding-top:6px; border-top:1px solid #e2e8f0;">
+        Confidential Professional Services Document • Colombo Associates Legal • Handover Reference: CA-WEB-2026-FINAL-01
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PAGE 2: SCOPE DELIVERED & BRIEF AUDIT
+       ========================================================================= -->
+  <div class="page">
+    <div class="doc-page-header">
+      <div class="brand-title">COLOMBO ASSOCIATES</div>
+      <div class="doc-meta-badge">Section 1: Scope &amp; Brief Compliance</div>
+    </div>
+
+    <h2 class="section-heading">
+      <span class="num-badge">1</span>
+      <span>Executive Summary &amp; Brief Compliance Audit</span>
+    </h2>
+    <p class="section-intro">
+      The web platform for <strong>Colombo Associates</strong> has been architected, coded, and deployed in strict adherence to the 7-page <em>"Website Strategy &amp; Content Brief"</em> and the official 9-page <em>"Our Team"</em> documentation. Every section satisfies professional legal ethics and publication safeguards under Sri Lankan statutory regulations.
+    </p>
+
+    <div class="card-box card-box-accent" style="margin-bottom:16px;">
+      <div class="card-title">Brand Positioning Statement (Section 2)</div>
+      <div style="font-size:10.5pt; font-weight:800; color:#081a44; margin-bottom:4px;">
+        "Legal clarity. Commercial perspective. Cross-border connections."
+      </div>
+      <div style="font-size:8.5pt; color:#475569;">
+        Colombo Associates provides legal, corporate and strategic support to businesses, investors, organisations and individuals navigating matters in Sri Lanka and across borders.
+      </div>
+    </div>
+
+    <h3 style="font-family:'Outfit',sans-serif; font-size:11pt; font-weight:800; color:#081a44; margin-bottom:10px;">
+      Delivered Page Inventory (8 Production Pages + Legal Framework)
+    </h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th style="width:18%;">Page &amp; URL</th>
+          <th style="width:25%;">Brief Section Mapped</th>
+          <th style="width:45%;">Functional Features &amp; Content Scope</th>
+          <th style="width:12%; text-align:center;">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Home</strong><br><span style="font-size:7.5pt; color:#64748b;">index.html</span></td>
+          <td>Section 5: Structure &amp; Copy</td>
+          <td>Hero headline, 15 practice areas directory, Why Colombo Associates, Leadership preview cards, Insights showcase, and direct contact intake.</td>
+          <td style="text-align:center;"><span class="status-check">✓ Deployed</span></td>
+        </tr>
+        <tr>
+          <td><strong>About Us</strong><br><span style="font-size:7.5pt; color:#64748b;">about.html</span></td>
+          <td>Section 6: Narrative &amp; Approach</td>
+          <td>Firm overview narrative, 3 brand quality pillars, 6 target stakeholder profiles, regulatory scope clarity, and practice leadership liaison banner.</td>
+          <td style="text-align:center;"><span class="status-check">✓ Deployed</span></td>
+        </tr>
+        <tr>
+          <td><strong>Practice Areas</strong><br><span style="font-size:7.5pt; color:#64748b;">services.html</span></td>
+          <td>Section 5C: 15 Categories</td>
+          <td>Full multi-discipline coverage: Corporate, Criminal, IP, Banking, Tax, Notary, ESG, Immigration, Disputes, Labor, Media/Tech, etc.</td>
+          <td style="text-align:center;"><span class="status-check">✓ Deployed</span></td>
+        </tr>
+        <tr>
+          <td><strong>International Desk</strong><br><span style="font-size:7.5pt; color:#64748b;">international-desk.html</span></td>
+          <td>Section 7: Cross-Border Desk</td>
+          <td>Overseas investor liaison, 4-step workflow (enquiry, conflict check, engagement, updates), cross-border inquiry intake.</td>
+          <td style="text-align:center;"><span class="status-check">✓ Deployed</span></td>
+        </tr>
+        <tr>
+          <td><strong>People</strong><br><span style="font-size:7.5pt; color:#64748b;">people.html</span></td>
+          <td>Section 8: Team Profiles (PDF)</td>
+          <td>7 verified leadership profiles with official headshots, Oxford/LSE/Colombo qualifications, Supreme Court enrollments, and interactive role filter tabs.</td>
+          <td style="text-align:center;"><span class="status-check">✓ Deployed</span></td>
+        </tr>
+        <tr>
+          <td><strong>Insights</strong><br><span style="font-size:7.5pt; color:#64748b;">insights.html</span></td>
+          <td>Section 5E: Knowledge &amp; Updates</td>
+          <td>Legal explainers, regulatory updates, categorised briefs with authors, dates, reading times, and statutory disclaimer tags.</td>
+          <td style="text-align:center;"><span class="status-check">✓ Deployed</span></td>
+        </tr>
+        <tr>
+          <td><strong>Careers</strong><br><span style="font-size:7.5pt; color:#64748b;">careers.html</span></td>
+          <td>Section 4: Careers &amp; Culture</td>
+          <td>Firm values, mentorship culture, internship/associate vacancies, and direct CV application intake engine.</td>
+          <td style="text-align:center;"><span class="status-check">✓ Deployed</span></td>
+        </tr>
+        <tr>
+          <td><strong>Contact</strong><br><span style="font-size:7.5pt; color:#64748b;">contact.html</span></td>
+          <td>Section 9: Enquiry Journey</td>
+          <td>8 mandatory intake fields, preferred time, confidentiality warning notice, and live Resend API routing to <code>Ajra.a@colomboassociates.com</code>.</td>
+          <td style="text-align:center;"><span class="status-check">✓ Deployed</span></td>
+        </tr>
+        <tr>
+          <td><strong>Legal &amp; Policy</strong><br><span style="font-size:7.5pt; color:#64748b;">privacy.html / terms.html</span></td>
+          <td>Section 12 &amp; 13: Safeguards</td>
+          <td>Privacy notice, retention policy, terms of engagement, statutory separation of legal counsel vs company secretarial services.</td>
+          <td style="text-align:center;"><span class="status-check">✓ Deployed</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="card-box" style="margin-top:10px;">
+      <div class="card-title">Compliance with Section 13 (Publication Safeguards)</div>
+      <p style="font-size:8pt; color:#475569; margin:0;">
+        • All unverified claims, success guarantees, and superlative assertions ("best law firm", "100% win rate") were strictly omitted.<br>
+        • Legal advocacy services before the courts are clearly distinguished from licensed company secretarial support.<br>
+        • All degrees (BCL Oxford, LL.B LSE, Washington College of Law) and public appointments (Former Deputy Solicitor General, DPA Director) are documented factually without extrapolation.
+      </p>
+    </div>
+
+    <div class="doc-page-footer">
+      <span>Colombo Associates — Handover &amp; Technical Report</span>
+      <span>Lead Consultant: Mohamed Dilsath</span>
+      <span>Page 2 of 5</span>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PAGE 3: TEAM INTEGRATION & TECHNICAL ARCHITECTURE
+       ========================================================================= -->
+  <div class="page">
+    <div class="doc-page-header">
+      <div class="brand-title">COLOMBO ASSOCIATES</div>
+      <div class="doc-meta-badge">Section 2: Team Integration &amp; Technical Architecture</div>
+    </div>
+
+    <h2 class="section-heading">
+      <span class="num-badge">2</span>
+      <span>Team Integration &amp; Technical Infrastructure</span>
+    </h2>
+    <p class="section-intro">
+      Replacing generic placeholders, all 7 official team profiles from the client brief are now integrated into the production platform with sharp authentic photography, structured credentials, and mobile-friendly layouts.
+    </p>
+
+    <!-- 7 Team Members Summary Grid -->
+    <table class="data-table" style="margin-bottom:18px;">
+      <thead>
+        <tr>
+          <th style="width:22%;">Team Member</th>
+          <th style="width:24%;">Official Title</th>
+          <th style="width:36%;">Key Credentials &amp; Practice Focus</th>
+          <th style="width:18%;">Languages / Office</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Ajra Azhar</strong></td>
+          <td>Founder &amp; Managing Partner</td>
+          <td>IBA Scholar 2023, Asia-Pacific Liaison Officer, MHRD (Colombo), LL.B (Hons) Batch Top (Jaffna). Cross-Border Advisory, High-Value Commercial Transactions.</td>
+          <td>English, Tamil<br>Colombo Office</td>
+        </tr>
+        <tr>
+          <td><strong>Shaheeda Barrie</strong></td>
+          <td>Senior Independent Legal Counsel &amp; Chambers Head</td>
+          <td>Former Deputy Solicitor General (22 Yrs AG's Dept), BCL (Oxford), LL.B 1st Class (LSE), Gray's Inn Barrister, CIArb UK. Financial &amp; Investment Law, PPPs.</td>
+          <td>English, Sinhala<br>Colombo Office</td>
+        </tr>
+        <tr>
+          <td><strong>Mayuran Mahalingam</strong></td>
+          <td>Attorney-at-Law</td>
+          <td>LL.M in Commercial Law (Colombo), LL.B (OUSL), B.A. (Hons) Peradeniya. Commercial Law, Public Law, Land Law, Criminal Defense.</td>
+          <td>English, Tamil<br>Colombo Office</td>
+        </tr>
+        <tr>
+          <td><strong>Muttalif Mohamed Sifan</strong></td>
+          <td>Attorney-at-Law</td>
+          <td>LL.B (Univ. of Jaffna), Attorney-at-Law Sri Lanka. Criminal Defense, Quazi Court Proceedings, Access to Justice, Civil Litigation.</td>
+          <td>English, Tamil<br>Colombo Office</td>
+        </tr>
+        <tr>
+          <td><strong>Sanduni Dilshika</strong></td>
+          <td>Senior Legal Associate</td>
+          <td>LL.B. (Hons) (Colombo), Sri Lanka Law College (2025), Dip. Psychology (SITC). Courtroom Procedure, Apex Jurisdiction Research, Client Advocacy.</td>
+          <td>English, Tamil, Sinhala<br>Colombo Office</td>
+        </tr>
+        <tr>
+          <td><strong>Rahna Rifky</strong></td>
+          <td>Head of Corporate</td>
+          <td>Bachelor of Laws (LLB) (Staffordshire, UK), Dip. Diplomacy &amp; World Affairs. Corporate Practice, Statutory Governance, Client Administration.</td>
+          <td>English, Tamil<br>Colombo Office</td>
+        </tr>
+        <tr>
+          <td><strong>Vazeer Afnaas</strong></td>
+          <td>Legal Associate</td>
+          <td>Bachelor of Law (Hons) UAE, BA Special (Tamil), Author &amp; Publisher. Legal Drafting, Public Relations, Strategic Planning, Research.</td>
+          <td>Tamil, English, Sinhala<br>Colombo Office</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-family:'Outfit',sans-serif; font-size:11pt; font-weight:800; color:#081a44; margin-bottom:10px;">
+      Live Infrastructure &amp; Security Engineering
+    </h3>
+
+    <div class="two-col-grid">
+      <div class="card-box">
+        <div class="card-title">Native cPanel Hosting &amp; Domain Authority</div>
+        <div class="kv-item">
+          <span class="kv-label">Server Platform:</span>
+          <span class="kv-val">Register.lk cPanel Hosting (IP: <code>162.215.12.139</code>)</span>
+        </div>
+        <div class="kv-item">
+          <span class="kv-label">Nameservers:</span>
+          <span class="kv-val"><code>node2431.registerns.com</code> &amp; <code>node2432.registerns.com</code></span>
+        </div>
+        <div class="kv-item">
+          <span class="kv-label">SSL &amp; Security:</span>
+          <span class="kv-val">100% Automated HTTPS enforcement via <code>.htaccess</code> rewrite rules.</span>
+        </div>
+        <div class="kv-item">
+          <span class="kv-label">Compression &amp; Caching:</span>
+          <span class="kv-val">Gzip compression enabled with aggressive static asset caching for fast mobile loads.</span>
+        </div>
+      </div>
+
+      <div class="card-box">
+        <div class="card-title">Enterprise Email Engine (Resend API)</div>
+        <div class="kv-item">
+          <span class="kv-label">Authenticated Domain:</span>
+          <span class="kv-val"><code>colomboassociates.com</code> (Status: Verified in Resend)</span>
+        </div>
+        <div class="kv-item">
+          <span class="kv-label">DKIM &amp; SPF:</span>
+          <span class="kv-val"><code>resend._domainkey</code> TXT &amp; <code>send.colomboassociates.com</code> CNAME active.</span>
+        </div>
+        <div class="kv-item">
+          <span class="kv-label">Sender Address:</span>
+          <span class="kv-val"><code>Colombo Associates &lt;intake@colomboassociates.com&gt;</code></span>
+        </div>
+        <div class="kv-item">
+          <span class="kv-label">Recipient Routing:</span>
+          <span class="kv-val">Automated real-time delivery directly to <code>Ajra.a@colomboassociates.com</code>.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-page-footer">
+      <span>Colombo Associates — Handover &amp; Technical Report</span>
+      <span>Lead Consultant: Mohamed Dilsath</span>
+      <span>Page 3 of 5</span>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PAGE 4: ACCESS DIRECTORY & CLIENT MAINTENANCE GUIDE
+       ========================================================================= -->
+  <div class="page">
+    <div class="doc-page-header">
+      <div class="brand-title">COLOMBO ASSOCIATES</div>
+      <div class="doc-meta-badge">Section 3: Access Directory &amp; Maintenance</div>
+    </div>
+
+    <h2 class="section-heading">
+      <span class="num-badge">3</span>
+      <span>Access Directory &amp; Maintenance Protocols</span>
+    </h2>
+    <p class="section-intro">
+      All source files, hosting controls, and production archives have been organized for complete client sovereignty. The firm has full ownership and zero external vendor lock-in.
+    </p>
+
+    <div class="three-col-grid">
+      <div class="card-box" style="text-align:center;">
+        <div class="card-title" style="margin-bottom:6px;">Live Website</div>
+        <div style="font-size:10pt; font-weight:800; color:#081a44; margin-bottom:4px;">colomboassociates.com</div>
+        <div style="font-size:7.5pt; color:#64748b;">Primary Public Access</div>
+      </div>
+      <div class="card-box" style="text-align:center;">
+        <div class="card-title" style="margin-bottom:6px;">Hosting Control</div>
+        <div style="font-size:10pt; font-weight:800; color:#081a44; margin-bottom:4px;">Register.lk cPanel</div>
+        <div style="font-size:7.5pt; color:#64748b;">File Manager: public_html</div>
+      </div>
+      <div class="card-box" style="text-align:center;">
+        <div class="card-title" style="margin-bottom:6px;">Code Repository</div>
+        <div style="font-size:10pt; font-weight:800; color:#081a44; margin-bottom:4px;">GitHub (Private/Sync)</div>
+        <div style="font-size:7.5pt; color:#64748b;">Branch: main (Clean)</div>
+      </div>
+    </div>
+
+    <div class="card-box" style="margin-bottom:16px;">
+      <div class="card-title">Production Package Reference</div>
+      <div class="kv-item">
+        <span class="kv-label">Local Master Deployment Archive:</span>
+        <span class="kv-val"><code>C:\Users\ASUS\Desktop\colombo-associates-cpanel.zip</code> (Size: 5.33 MB)</span>
+      </div>
+      <div class="kv-item">
+        <span class="kv-label">Git Version Control Repository:</span>
+        <span class="kv-val"><code>https://github.com/Dilsath0512/colombo-associates.git</code></span>
+      </div>
+      <div class="kv-item">
+        <span class="kv-label">Contents:</span>
+        <span class="kv-val">All 8 core HTML pages, CSS styling system, JS interactive scripts, 7 authentic team portraits, native PHP Resend API handlers, <code>.htaccess</code> configuration, and <code>.env</code> environment templates.</span>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Outfit',sans-serif; font-size:11pt; font-weight:800; color:#081a44; margin-bottom:10px;">
+      How to Maintain &amp; Update the Website (Client Instructions)
+    </h3>
+
+    <div class="two-col-grid">
+      <div class="card-box">
+        <div class="card-title" style="font-size:9.5pt;">1. Adding Legal Articles (Insights)</div>
+        <p style="font-size:8pt; color:#475569; margin:0;">
+          Open <code>insights.html</code> in cPanel File Manager Code Editor. Copy an existing <code>&lt;article class="insight-card"&gt;</code> block, update the title, publication date, author name, category tag, and summary. Save changes; the live site updates instantaneously.
+        </p>
+      </div>
+
+      <div class="card-box">
+        <div class="card-title" style="font-size:9.5pt;">2. Updating Team Profiles</div>
+        <p style="font-size:8pt; color:#475569; margin:0;">
+          Open <code>people.html</code>. To modify qualifications, designations, or bar admissions, locate the team member's <code>&lt;article class="team-profile-card"&gt;</code> and update the text. Upload any new portrait to <code>assets/images/</code> as a square JPG.
+        </p>
+      </div>
+
+      <div class="card-box">
+        <div class="card-title" style="font-size:9.5pt;">3. Inquiries &amp; Email Delivery</div>
+        <p style="font-size:8pt; color:#475569; margin:0;">
+          All client submissions from <code>contact.html</code> and <code>careers.html</code> are automatically formatted into executive HTML email briefs and routed to <code>Ajra.a@colomboassociates.com</code>. Ensure this inbox is monitored daily for timely client responses.
+        </p>
+      </div>
+
+      <div class="card-box">
+        <div class="card-title" style="font-size:9.5pt;">4. Routine Security Backups</div>
+        <p style="font-size:8pt; color:#475569; margin:0;">
+          Log into cPanel once per month, click on <strong>Backup Wizard</strong>, and download a Full or Partial Backup (Home Directory). Store this copy safely on an external hard drive or secure cloud storage.
+        </p>
+      </div>
+    </div>
+
+    <div class="card-box card-box-accent">
+      <div class="card-title">Recommended Phase 2 Expansions (Post-Launch Roadmap)</div>
+      <div style="font-size:8pt; color:#475569; line-height:1.5;">
+        <strong>• Client Intake Document Portal:</strong> Build a high-security encrypted portal for confidential corporate intake.<br>
+        <strong>• Trilingual Localization:</strong> Deploy Sinhala and Tamil versions alongside English for regional litigation clients.<br>
+        <strong>• Google Business &amp; Local SEO:</strong> Claim the Colombo corporate office on Google Maps and index all 15 practice areas.
+      </div>
+    </div>
+
+    <div class="doc-page-footer">
+      <span>Colombo Associates — Handover &amp; Technical Report</span>
+      <span>Lead Consultant: Mohamed Dilsath</span>
+      <span>Page 4 of 5</span>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PAGE 5: DEVELOPER PROFILE, SUPPORT RETAINER & SIGN-OFF
+       ========================================================================= -->
+  <div class="page">
+    <div class="doc-page-header">
+      <div class="brand-title">COLOMBO ASSOCIATES</div>
+      <div class="doc-meta-badge">Section 4: Developer Profile &amp; Sign-Off</div>
+    </div>
+
+    <h2 class="section-heading">
+      <span class="num-badge">4</span>
+      <span>Lead Developer Profile &amp; Support Retainer</span>
+    </h2>
+    <p class="section-intro">
+      This platform was engineered and delivered by <strong>Mohamed Dilsath</strong>. For ongoing maintenance, technical expansions, or immediate support, direct contact details and partnership options are outlined below.
+    </p>
+
+    <!-- Developer Profile Box -->
+    <div class="dev-profile-container">
+      <div class="dev-profile-header">
+        <div>
+          <div class="dev-name">Mohamed Dilsath</div>
+          <div class="dev-title">Full-Stack Web Developer &amp; Digital Solutions Consultant</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:8.5pt; font-weight:700; color:#38bdf8;">Technical Partner</div>
+          <div style="font-size:7.5pt; color:rgba(255,255,255,0.7);">Web &amp; Cloud Infrastructure</div>
+        </div>
+      </div>
+
+      <p style="font-size:8.5pt; color:rgba(255,255,255,0.85); line-height:1.6; margin-bottom:12px;">
+        Specialising in premium bespoke corporate web applications, modern responsive UI systems, enterprise email routing, and cloud hosting architecture. Dedicated to providing long-term reliability, prompt communication, and technical excellence to growing professional services firms.
+      </p>
+
+      <div class="dev-contact-pills">
+        <div class="dev-pill">📧 Email: mohmdlsth1129@gmail.com</div>
+        <div class="dev-pill">🌐 GitHub: github.com/Dilsath0512</div>
+        <div class="dev-pill">📍 Colombo, Sri Lanka</div>
+        <div class="dev-pill">⚡ SLA Response: Within 12 Hours</div>
+      </div>
+    </div>
+
+    <!-- Future Collaboration & Retainer Offerings -->
+    <div class="card-box" style="margin-bottom:16px;">
+      <div class="card-title">Ongoing Retainer &amp; Future Development Services</div>
+      <p style="font-size:8pt; color:#475569; margin-bottom:8px;">
+        To ensure Colombo Associates maintains an impeccably fast, secure, and modern digital presence, the following ongoing retainer and support services are available on-demand:
+      </p>
+      <div class="two-col-grid" style="margin-bottom:0;">
+        <div style="font-size:8pt; color:#334155;">
+          <strong>• Priority Monthly Maintenance:</strong> Routine cPanel backups, PHP security patches, domain renewal monitoring, and SSL audits.<br>
+          <strong>• Rapid Content Publishing:</strong> Immediate formatting and publishing of new legal updates, articles, case summaries, and lawyer profiles.
+        </div>
+        <div style="font-size:8pt; color:#334155;">
+          <strong>• Phase 2 Portal Development:</strong> Custom building of the secure client enquiry and document upload intake system.<br>
+          <strong>• Performance &amp; SEO Optimisation:</strong> Ongoing speed enhancements and search engine ranking monitoring.
+        </div>
+      </div>
+    </div>
+
+    <!-- Formal Sign-Off Table -->
+    <h3 style="font-family:'Outfit',sans-serif; font-size:10.5pt; font-weight:800; color:#081a44; margin-bottom:8px;">
+      Project Acceptance &amp; Handover Sign-Off
+    </h3>
+    <p style="font-size:8pt; color:#64748b; margin-bottom:12px;">
+      By executing below, both parties acknowledge that the web platform has been delivered, verified, and accepted in accordance with the project scope.
+    </p>
+
+    <div class="sign-grid">
+      <div class="sign-box">
+        <div class="sign-title">Delivered By (Developer)</div>
+        <div style="font-size:12pt; font-family:'Outfit',sans-serif; font-weight:700; color:#081a44; margin-bottom:10px; font-style:italic;">
+          Mohamed Dilsath
+        </div>
+        <div class="sign-line">
+          <div class="sign-name">Mohamed Dilsath</div>
+          <div>Full-Stack Web Developer &amp; Technical Consultant</div>
+          <div>Date: November 01, 2026</div>
+        </div>
+      </div>
+
+      <div class="sign-box">
+        <div class="sign-title">Accepted By (Client Leadership)</div>
+        <div style="font-size:12pt; font-family:'Outfit',sans-serif; font-weight:700; color:#081a44; margin-bottom:10px; font-style:italic;">
+          Ajra Azhar
+        </div>
+        <div class="sign-line">
+          <div class="sign-name">Ajra Azhar, Attorney-at-Law</div>
+          <div>Founder and Managing Partner, Colombo Associates</div>
+          <div>Date: November 01, 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-page-footer">
+      <span>Colombo Associates — Handover &amp; Technical Report</span>
+      <span>Lead Consultant: Mohamed Dilsath</span>
+      <span>Page 5 of 5</span>
+    </div>
+  </div>
+
+</body>
+</html>
