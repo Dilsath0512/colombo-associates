@@ -497,7 +497,7 @@ const server = http.createServer((req, res) => {
         <td style="background-color: #f8fafc; border-top: 1px solid #e2e8f0; padding: 16px 24px; text-align: center;">
           <div style="font-size: 12px; color: #64748b; font-weight: 600;">Colombo Associates &bull; Colombo, Sri Lanka</div>
           <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">
-            <a href="https://colomboassociates.lk" style="color: #c5a059; text-decoration: none;">colomboassociates.lk</a>
+            <a href="https://colomboassociates.com" style="color: #c5a059; text-decoration: none;">colomboassociates.com</a>
           </div>
         </td>
       </tr>
@@ -854,7 +854,7 @@ const server = http.createServer((req, res) => {
         <td style="background-color: #f8fafc; border-top: 1px solid #e2e8f0; padding: 16px 24px; text-align: center;">
           <div style="font-size: 12px; color: #64748b; font-weight: 600;">Colombo Associates &bull; Colombo, Sri Lanka</div>
           <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">
-            <a href="https://colomboassociates.lk/careers.html" style="color: #c5a059; text-decoration: none;">colomboassociates.lk/careers</a>
+            <a href="https://colomboassociates.com/careers.html" style="color: #c5a059; text-decoration: none;">colomboassociates.com/careers</a>
           </div>
         </td>
       </tr>
