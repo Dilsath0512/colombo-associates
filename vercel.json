@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/api/enquiry", "destination": "/api/enquiry" },
+    { "source": "/api/careers/apply", "destination": "/api/careers" },
+    { "source": "/api/recruitment/apply", "destination": "/api/careers" },
+    { "source": "/api/health", "destination": "/api/health" }
+  ]
+}
