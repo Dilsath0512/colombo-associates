@@ -393,7 +393,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       } catch (err) {
         console.error('Enquiry dispatch error:', err);
-        alert('Unable to complete online transmission. Please contact Colombo Associates intake directly via telephone (+94 11 234 5678) or email (enquiries@colomboassociates.lk).');
+        alert('Unable to complete online transmission. Please contact Colombo Associates intake directly via telephone (+94 11 234 5678) or email (Ajra.a@colomboassociates.com).');
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;

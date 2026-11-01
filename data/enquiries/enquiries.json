@@ -151,5 +151,22 @@
     "submissionTimestamp": "2026-10-31T15:00:12.027Z",
     "enquiryStatus": "Pending Conflict Review",
     "assignedIntakeOfficer": "Conflict Clearance Committee"
+  },
+  {
+    "enquiryReferenceId": "CA-ENQ-2026-3992",
+    "fullName": "Al-Farabi Investments",
+    "organisation": "Al-Farabi Capital LLC",
+    "businessEmail": "investor.relations@alfarabi.ae",
+    "telephone": "+971 4 312 8899",
+    "country": "United Arab Emirates",
+    "serviceArea": "Foreign Direct Investment (FDI) & BOI",
+    "matterDescription": "Inquiry regarding BOI section 17 concessions and enterprise registration in Colombo Port City.",
+    "preferredContactMethod": "Email",
+    "preferredTimeWindow": "Sri Lanka Business Hours (Morning)",
+    "privacyConsent": true,
+    "consentTimestamp": "2026-11-01T11:26:38.695Z",
+    "submissionTimestamp": "2026-11-01T11:26:38.699Z",
+    "enquiryStatus": "Pending Conflict Review",
+    "assignedIntakeOfficer": "Conflict Clearance Committee"
   }
 ]

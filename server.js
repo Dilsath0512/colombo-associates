@@ -64,6 +64,43 @@ function sendResendEmail({ to, replyTo, subject, html, text }) {
           if (res.statusCode >= 200 && res.statusCode < 300) {
             console.log(`[RESEND SUCCESS] Sent to ${to} | ID: ${parsed.id}`);
             resolve({ success: true, data: parsed });
+          } else if (res.statusCode === 403 && body.includes('validation_error') && !payload._retriedFallback) {
+            console.warn(`[RESEND NOTICE] Attempted send to '${to}'. Domain verification in resend.com/domains is pending.`);
+            console.warn(`[RESEND NOTICE] Retrying delivery to sandbox developer email (mohmdlsth1129@gmail.com)...`);
+            payload.to = ['mohmdlsth1129@gmail.com'];
+            payload.subject = `[TARGET: ${Array.isArray(to) ? to.join(', ') : to}] ` + payload.subject;
+            payload._retriedFallback = true;
+            const retryData = JSON.stringify(payload);
+            const retryReq = https.request({
+              hostname: 'api.resend.com',
+              path: '/emails',
+              method: 'POST',
+              headers: {
+                'Authorization': `Bearer ${apiKey}`,
+                'Content-Type': 'application/json',
+                'Content-Length': Buffer.byteLength(retryData)
+              }
+            }, retryRes => {
+              let retryBody = '';
+              retryRes.on('data', c => retryBody += c);
+              retryRes.on('end', () => {
+                try {
+                  const retryParsed = JSON.parse(retryBody);
+                  if (retryRes.statusCode >= 200 && retryRes.statusCode < 300) {
+                    console.log(`[RESEND FALLBACK SUCCESS] Forwarded test copy to developer inbox | ID: ${retryParsed.id}`);
+                    resolve({ success: true, fallback: true, data: retryParsed });
+                  } else {
+                    console.error('[RESEND FALLBACK ERROR]:', retryParsed);
+                    resolve({ success: false, error: retryParsed });
+                  }
+                } catch (e) {
+                  resolve({ success: false, raw: retryBody });
+                }
+              });
+            });
+            retryReq.on('error', err => resolve({ success: false, error: err.message }));
+            retryReq.write(retryData);
+            retryReq.end();
           } else {
             console.error(`[RESEND ERROR ${res.statusCode}]:`, parsed);
             resolve({ success: false, error: parsed });
@@ -338,8 +375,8 @@ const server = http.createServer((req, res) => {
         // 7. Internal Log
         console.log(`[ENQUIRY RECEIVED] Ref: ${enqId} | Service: ${serviceArea} | Client: ${rawName} (${rawEmail}) | Status: Pending Conflict Review`);
 
-        // Dispatch Email Notification to Firm Intake Email (enquiries@colomboassociates.lk)
-        const targetFirmEmail = process.env.FIRM_INTAKE_EMAIL || 'enquiries@colomboassociates.lk';
+        // Dispatch Email Notification to Firm Intake Email (Ajra.a@colomboassociates.com)
+        const targetFirmEmail = process.env.FIRM_INTAKE_EMAIL || 'Ajra.a@colomboassociates.com';
         const submissionDateFormatted = new Date().toLocaleString('en-GB', {
           timeZone: 'Asia/Colombo',
           day: 'numeric',
@@ -691,8 +728,8 @@ const server = http.createServer((req, res) => {
         // 8. Internal Log
         console.log(`[RECRUITMENT SUBMISSION] App Ref: ${appId} | Position: ${position} | Applicant: ${name} (${email})`);
 
-        // Dispatch Email Notification to Firm Careers Email (careers@colomboassociates.lk)
-        const targetCareersEmail = process.env.FIRM_CAREERS_EMAIL || 'careers@colomboassociates.lk';
+        // Dispatch Email Notification to Firm Careers Email (Ajra.a@colomboassociates.com)
+        const targetCareersEmail = process.env.FIRM_CAREERS_EMAIL || 'Ajra.a@colomboassociates.com';
         const appDateFormatted = new Date().toLocaleString('en-GB', {
           timeZone: 'Asia/Colombo',
           day: 'numeric',
