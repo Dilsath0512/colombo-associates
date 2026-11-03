@@ -220,7 +220,7 @@ function getResendApiKey() {
 }
 
 $resendApiKey = getResendApiKey();
-$targetRecipient = 'Ajra.a@colomboassociates.com';
+$targetRecipient = getenv('FIRM_CAREERS_EMAIL') ?: 'contact@colomboassociates.com';
 
 $payload = [
     'from' => 'Colombo Associates <intake@colomboassociates.com>',

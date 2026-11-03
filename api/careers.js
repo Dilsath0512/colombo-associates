@@ -140,7 +140,7 @@ module.exports = async (req, res) => {
   }
 
   const appId = `CA-APP-2026-${Math.floor(1000 + Math.random() * 9000)}`;
-  const targetCareersEmail = process.env.FIRM_CAREERS_EMAIL || 'Ajra.a@colomboassociates.com';
+  const targetCareersEmail = process.env.FIRM_CAREERS_EMAIL || 'contact@colomboassociates.com';
 
   const appDateFormatted = new Date().toLocaleString('en-GB', {
     timeZone: 'Asia/Colombo',

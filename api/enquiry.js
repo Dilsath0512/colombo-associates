@@ -171,7 +171,7 @@ module.exports = async (req, res) => {
   const enqId = `CA-ENQ-2026-${Math.floor(1000 + Math.random() * 9000)}`;
 
   // 4. Dispatch Email Notification to Firm Intake Email
-  const targetFirmEmail = process.env.FIRM_INTAKE_EMAIL || 'Ajra.a@colomboassociates.com';
+  const targetFirmEmail = process.env.FIRM_INTAKE_EMAIL || 'contact@colomboassociates.com';
   const submissionDateFormatted = new Date().toLocaleString('en-GB', {
     timeZone: 'Asia/Colombo',
     day: 'numeric',

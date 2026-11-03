@@ -221,9 +221,8 @@ function getResendApiKey() {
     return '';
 }
 
-// 5. Send via Resend API
 $resendApiKey = getResendApiKey();
-$targetRecipient = 'Ajra.a@colomboassociates.com';
+$targetRecipient = getenv('FIRM_INTAKE_EMAIL') ?: 'contact@colomboassociates.com';
 
 $payload = [
     'from' => 'Colombo Associates <intake@colomboassociates.com>',

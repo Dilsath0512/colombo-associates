@@ -375,8 +375,8 @@ const server = http.createServer((req, res) => {
         // 7. Internal Log
         console.log(`[ENQUIRY RECEIVED] Ref: ${enqId} | Service: ${serviceArea} | Client: ${rawName} (${rawEmail}) | Status: Pending Conflict Review`);
 
-        // Dispatch Email Notification to Firm Intake Email (Ajra.a@colomboassociates.com)
-        const targetFirmEmail = process.env.FIRM_INTAKE_EMAIL || 'Ajra.a@colomboassociates.com';
+        // Dispatch Email Notification to Firm Intake Email (contact@colomboassociates.com)
+        const targetFirmEmail = process.env.FIRM_INTAKE_EMAIL || 'contact@colomboassociates.com';
         const submissionDateFormatted = new Date().toLocaleString('en-GB', {
           timeZone: 'Asia/Colombo',
           day: 'numeric',
@@ -728,8 +728,8 @@ const server = http.createServer((req, res) => {
         // 8. Internal Log
         console.log(`[RECRUITMENT SUBMISSION] App Ref: ${appId} | Position: ${position} | Applicant: ${name} (${email})`);
 
-        // Dispatch Email Notification to Firm Careers Email (Ajra.a@colomboassociates.com)
-        const targetCareersEmail = process.env.FIRM_CAREERS_EMAIL || 'Ajra.a@colomboassociates.com';
+        // Dispatch Email Notification to Firm Careers Email (contact@colomboassociates.com)
+        const targetCareersEmail = process.env.FIRM_CAREERS_EMAIL || 'contact@colomboassociates.com';
         const appDateFormatted = new Date().toLocaleString('en-GB', {
           timeZone: 'Asia/Colombo',
           day: 'numeric',
