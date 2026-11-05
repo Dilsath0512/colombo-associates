@@ -393,7 +393,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       } catch (err) {
         console.error('Enquiry dispatch error:', err);
-        alert('Unable to complete online transmission. Please contact Colombo Associates intake directly via telephone (0741 454 505) or email (contact@colomboassociates.com).');
+        alert('Unable to complete online transmission. Please contact Colombo Associates intake directly via telephone (+94 741 454 505) or email (contact@colomboassociates.com).');
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
